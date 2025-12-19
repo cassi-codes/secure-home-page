@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center m-5">
+                <div class="col-12 col-xl-6 custom-bg p-4">
+                    <h1 class="text-center mb-4"><span class="title-text">管理人アカウント変更</span></h1>
+
+                    <form action="/admin/changeAdmin" method="POST" novalidate class="needs-validation">
+                        <div class="mb-3">
+                            <label class="form-label h5" for="name">名前</label>
+                            <input class="form-control" type="text" id="name" name="username" placeholder="管理人名"
+                                required>
+                            <div class="invalid-feedback">
+                                名前を入力してください。
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label h5" for="password">パスワード</label>
+                            <input class="form-control" type="password" id="password" name="password"
+                                placeholder="パスワード（8桁以上）" minlength="8" required>
+                            <div class="invalid-feedback">
+                                パスワードは8桁以上で入力してください。
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-success w-50 text-white">変更</button>
+                        </div>
+                    </form>
+
+                <script src="/javascripts/admin/formValidate.js"></script>
+                </div>
+            </div>
+        </div>
