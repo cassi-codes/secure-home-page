@@ -1,4 +1,6 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -20,6 +22,9 @@ const controlApplicantsRoutes = require("./routes/controlApplicants");
 const adminRoutes = require("./routes/admin");
 const mongoUri =
   process.env.MONGODB_URI || "mongodb://localhost:27017/secure_recruitment";
+const MongoStore = require("connect-mongo");
+const mongoSanitize = require("express-mongo-sanitize");
+
 
 mongoose
   .connect(mongoUri)
@@ -34,19 +39,28 @@ mongoose
 app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set('view options', {
+  locals: true
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(morgan("common"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(mongoSanitize());
 
 const sessionConfig = {
   secret: process.env.SESSION_SECRET || "mySecret-local-only",
   resave: false,
   saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: mongoUri
+  }),
   cookie: {
     httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
   },
 };
 

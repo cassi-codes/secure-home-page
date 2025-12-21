@@ -292,6 +292,13 @@ nav {
     border-radius: 1em;
 }
 
+@media (min-width: 992px) {
+    .service-wrapper .triImg > div {
+        flex: 0 0 auto;
+        width: 30%;
+    }
+}
+
 svg {
     fill: #4CCD99;
 }
