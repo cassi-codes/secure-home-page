@@ -1,3 +1,4 @@
+const Applicant = require("../schema/model");
 
 const validatePhone = async(req, res, next) =>{
     const { phoneNumber } = req.body.applicant;
@@ -5,7 +6,8 @@ const validatePhone = async(req, res, next) =>{
     if (existingApplicant) {
       req.flash("error", "この電話番号は既に登録されています");
       return res.redirect("/applicant/form");
-    }next()
+    }
+    next();
 };
 
-module.exports = validatePhone
+module.exports = validatePhone;
