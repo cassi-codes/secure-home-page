@@ -291,11 +291,20 @@ nav {
     font-weight: bold;
 }
 
-/* スマホサイズ（< 576px）でトグルメニュー展開時の高さ調整 */
 @media (max-width: 575px) {
     nav {
         min-height: auto;
     }
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+}
+
+.navbar-toggler-icon {
+    width: 1.2em;
+    height: 1.2em;
 }
 
 .TopPageBg{
