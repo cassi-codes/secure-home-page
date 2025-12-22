@@ -19,9 +19,9 @@
 
     toggleSelectionBtn.addEventListener('click', function() {
         isSelectionMode = true;
-        toggleSelectionBtn.style.display = 'none';
-        deleteSelectedBtn.style.display = 'inline-block';
-        cancelSelectionBtn.style.display = 'inline-block';
+        toggleSelectionBtn.classList.add('d-none');
+        deleteSelectedBtn.classList.remove('d-none');
+        cancelSelectionBtn.classList.remove('d-none');
         selectionCheckboxes.forEach(cb => cb.style.display = 'block');
         deleteButtons.forEach(btn => btn.style.display = 'none');
     });
@@ -30,9 +30,9 @@
 
     cancelSelectionBtn.addEventListener('click', function() {
         isSelectionMode = false;
-        toggleSelectionBtn.style.display = 'inline-block';
-        deleteSelectedBtn.style.display = 'none';
-        cancelSelectionBtn.style.display = 'none';
+        toggleSelectionBtn.classList.remove('d-none');
+        deleteSelectedBtn.classList.add('d-none');
+        cancelSelectionBtn.classList.add('d-none');
         selectionCheckboxes.forEach(cb => {
             cb.style.display = 'none';
             cb.checked = false;
