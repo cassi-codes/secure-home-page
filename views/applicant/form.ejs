@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center m-5">
         <div class="col-lg-6 col-md-8 custom-bg p-4">
-            <h1 class="text-center">お問い合わせフォーム</h1>
+            <h1 class="text-center">お問い合わせ<br class="d-sm-none">フォーム</h1>
             <form action="/admin/applicants" method="POST" novalidate class="needs-validation">
                     <div class="m-3">
                         <label class="mb-2 h5" for="name">名前</label>
@@ -59,43 +59,3 @@
     </div>
 </div>
     <script src="/javascripts/applicant/form.js"></script>
-    
-    <!-- const today = new Date();
-    const maxDate = today.toISOString().split("T")[0];
-    const minDateObj = new Date();
-    minDateObj.setFullYear(today.getFullYear() - 100);
-    const minDate = minDateObj.toISOString().split("T")[0];
-    
-    const birthDateInput = document.getElementById("birthDate");
-    birthDateInput.max = maxDate;
-    birthDateInput.min = minDate;
-    
-    birthDateInput.addEventListener(
-    "focus",
-    function () {
-    if (!this.value) {
-    this.value = "2000-01-01";
-    }
-    },
-    { once: true }
-    );
-    
-    
-    
-    const phoneNumberInput = document.getElementById("phoneNumber");
-    const phoneNumberWarning = document.getElementById("phoneNumberWarning");
-    const phoneNumberInvalidFeedback = document.getElementById(
-    "phoneNumberInvalidFeedback"
-    );
-    const phoneDuplicateWarning = document.getElementById("phoneDuplicateWarning");
-    let isDuplicate = false;
-    
-    
-    
-    
-    
-    phoneNumberInput.addEventListener("input", function (e) {
-    let value = this.value.replace(/[０-９]/g, function (s) {
-    return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
-    });
-    value = value.replace(/[^0-9]/g, ""); -->

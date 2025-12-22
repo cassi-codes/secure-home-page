@@ -24,7 +24,6 @@ const adminRoutes = require("./routes/admin");
 const mongoUri =
   process.env.MONGODB_URI || "mongodb://localhost:27017/secure_recruitment";
 const MongoStore = require("connect-mongo");
-// const mongoSanitize = require("express-mongo-sanitize");
 
 mongoose
   .connect(mongoUri)
@@ -55,12 +54,11 @@ const sessionConfig = {
   cookie: {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
-    // secure: process.env.NODE_ENV === "production",
-    // sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
   },
 };
 
-// app.use(mongoSanitize());
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
