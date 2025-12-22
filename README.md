@@ -43,7 +43,10 @@
 - EJS（テンプレートエンジン）
 - Bootstrap（UI/レスポンシブデザイン）
 
-・デモ: [https://secure-home-page.onrender.com](https://secure-home-page.onrender.com)
+・デモ: ホームページ[https://secure-home-page.onrender.com/applicant/topPage]
+(https://secure-home-page.onrender.com/applicant/topPage)
+管理者ページ[https://secure-home-page.onrender.com/admin/login]
+(https://secure-home-page.onrender.com/admin/login)
 
 ・機能詳細
 
