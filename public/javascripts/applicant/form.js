@@ -28,11 +28,34 @@ const phoneNumberInvalidFeedback = document.getElementById(
 const phoneDuplicateWarning = document.getElementById("phoneDuplicateWarning");
 let isDuplicate = false;
 
+function setPhoneError(errorType) {
+  phoneNumberWarning.style.display = "none";
+  phoneNumberInvalidFeedback.style.display = "none";
+  phoneDuplicateWarning.style.display = "none";
 
+  switch (errorType) {
+    case "notStartWith0":
+      phoneNumberWarning.style.display = "block";
+      phoneNumberInput.setCustomValidity("電話番号は0から始まる必要があります");
+      break;
+    case "invalidLength":
+      phoneNumberInvalidFeedback.style.display = "block";
+      phoneNumberInput.setCustomValidity("0から始まる10桁または11桁の電話番号を入力してください");
+      break;
+    case "duplicate":
+      phoneDuplicateWarning.style.display = "block";
+      phoneNumberInput.setCustomValidity("この電話番号は既に申し込み頂いております");
+      isDuplicate = true;
+      break;
+    case "none":
+    default:
+      phoneNumberInput.setCustomValidity("");
+      isDuplicate = false;
+      break;
+  }
+}
 
-
-
-phoneNumberInput.addEventListener("input", function (e) {
+phoneNumberInput.addEventListener("input", function () {
   let value = this.value.replace(/[０-９]/g, function (s) {
     return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
   });
@@ -41,37 +64,21 @@ phoneNumberInput.addEventListener("input", function (e) {
 
 
 
-  
   if (value.length > 0 && !value.startsWith("0")) {
-    phoneNumberWarning.style.display = "block";
-    phoneNumberInvalidFeedback.style.display = "none";
+    setPhoneError("notStartWith0");
     value = "";
-  } 
-
-  if (value.length > 11) {
-    phoneNumberInvalidFeedback.style.display = "block";
-    phoneNumberWarning.style.display = "none";
+  } else if (value.length > 11) {
+    setPhoneError("invalidLength");
     value = value.slice(0, 11);
-  } 
-  this.value = value;
-
-  if (isDuplicate) {
-    this.setCustomValidity("この電話番号は既に申し込み頂いております");
   } else {
-    this.setCustomValidity("");
+    setPhoneError("none");
   }
+
+  this.value = value;
 });
-
-
-
 
 phoneNumberInput.addEventListener("blur", async function () {
   const phoneNumber = this.value;
-
-  if (phoneNumber && phoneNumber.length > 0 && phoneNumber.length < 10) {
-    phoneNumberInvalidFeedback.style.display = "block";
-    return;
-  }
 
   if (
     phoneNumber &&
@@ -84,12 +91,9 @@ phoneNumberInput.addEventListener("blur", async function () {
       const data = await response.json();
 
       if (data.exists) {
-        isDuplicate = true;
-        phoneDuplicateWarning.style.display = "block";
-        this.setCustomValidity("この電話番号は既に申し込み頂いております");
+        setPhoneError("duplicate");
       } else {
-        isDuplicate = false;
-        this.setCustomValidity("");
+        setPhoneError("none");
       }
     } catch (error) {
       console.error("Error checking phone number:", error);
@@ -119,6 +123,16 @@ autoResize.call(requirementsTextarea);
     form.addEventListener(
       "submit",
       (event) => {
+        const phoneNumber = phoneNumberInput.value;
+
+        if (!phoneNumber || phoneNumber.length < 10) {
+          setPhoneError("invalidLength");
+        } else if (phoneNumber.length > 11) {
+          setPhoneError("invalidLength");
+        } else if (!phoneNumber.startsWith("0")) {
+          setPhoneError("notStartWith0");
+        }
+
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
