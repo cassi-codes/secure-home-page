@@ -276,9 +276,26 @@ body {
     background-position: 0 0, 40px 40px;
 }
 
+section p ,h3{
+    font-size: 1rem;
+}
+
+@media (min-width: 576px){
+   section p, h3{
+        font-size: 1.25rem;
+    }
+}
+
 nav {
-    height: 70px;
+    min-height: 70px;
     font-weight: bold;
+}
+
+/* スマホサイズ（< 576px）でトグルメニュー展開時の高さ調整 */
+@media (max-width: 575px) {
+    nav {
+        min-height: auto;
+    }
 }
 
 .TopPageBg{
