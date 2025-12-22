@@ -264,6 +264,27 @@ html {
     max-width: 100%;
 }
 
+nav {
+    min-height: 70px;
+    font-weight: bold;
+}
+
+@media (max-width: 575px) {
+    nav {
+        min-height: auto;
+    }
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+}
+
+.navbar-toggler-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
 body {
     font-family: noto-sans-Japanese, suns-serif;
     width: 100%;
@@ -284,27 +305,6 @@ section p ,h3{
    section p, h3{
         font-size: 1.25rem;
     }
-}
-
-nav {
-    min-height: 70px;
-    font-weight: bold;
-}
-
-@media (max-width: 575px) {
-    nav {
-        min-height: auto;
-    }
-}
-
-.navbar-toggler {
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-}
-
-.navbar-toggler-icon {
-    width: 1.2em;
-    height: 1.2em;
 }
 
 .TopPageBg{
