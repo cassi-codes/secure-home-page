@@ -27,6 +27,7 @@ const phoneNumberInvalidFeedback = document.getElementById(
 );
 const phoneDuplicateWarning = document.getElementById("phoneDuplicateWarning");
 let isDuplicate = false;
+let isMaxLength = false;
 
 function setPhoneError(errorType) {
   phoneNumberWarning.style.display = "none";
@@ -67,11 +68,19 @@ phoneNumberInput.addEventListener("input", function () {
   if (value.length > 0 && !value.startsWith("0")) {
     setPhoneError("notStartWith0");
     value = "";
+    isMaxLength = false;
   } else if (value.length > 11) {
     setPhoneError("invalidLength");
     value = value.slice(0, 11);
+    isMaxLength = true;
+  } else if (isMaxLength && value.length === 11) {
+    setPhoneError("invalidLength");
+  } else if (value.length === 10) {
+    setPhoneError("none");
+    isMaxLength = false;
   } else {
     setPhoneError("none");
+    isMaxLength = false;
   }
 
   this.value = value;

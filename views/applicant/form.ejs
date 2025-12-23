@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div class="m-3">
-                        <label class="mb-2 h5" for="birthDate">生年月日<small class="text-muted">(例: 1990/01/01)</small></label>
+                        <label class="mb-2 h5" for="birthDate">生年月日<small class="text-muted"><br class="d-sm-none">(例: 1990/01/01)</small></label>
                         <input class="form-control" type="date" name="applicant[birthDate]" id="birthDate" required>
                         <div class="invalid-feedback">
                             生年月日を選択してください。
@@ -24,13 +24,13 @@
                         <input class="form-control" type="tel" name="applicant[phoneNumber]" id="phoneNumber"
                             placeholder="09012341234" pattern="0[0-9]{9,10}" maxlength="11" required>
                         <div class="mt-1" id="phoneNumberInvalidFeedback">
-                            0から始まる10桁または11桁の電話番号を入力してください。
+                            0から始まる10桁または<br class="d-sm-none">11桁の電話番号を<br class="d-sm-none">入力してください。
                         </div>
                         <div class="mt-1" id="phoneNumberWarning">
-                            電話番号は0から始まる必要があります
+                            電話番号は<br class="d-sm-none">0から始まる必要があります
                         </div>
                         <div class="mt-1" id="phoneDuplicateWarning">
-                            この電話番号は既に申し込み頂いております
+                            この電話番号は<br class="d-sm-none">既に申し込み頂いております
                         </div>
                     </div>
                     <div class="m-3">
