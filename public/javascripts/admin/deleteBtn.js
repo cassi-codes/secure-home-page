@@ -24,7 +24,10 @@
         deleteSelectedBtn.classList.add('d-ms-inline');
         cancelSelectionBtn.classList.remove('d-none');
         cancelSelectionBtn.classList.add('d-ms-inline');
-        selectionCheckboxes.forEach(cb => cb.style.display = 'block');
+        selectionCheckboxes.forEach(cb => {
+            cb.classList.remove('d-none');
+            cb.classList.add('d-block');
+        });
         deleteButtons.forEach(btn => btn.style.display = 'none');
     });
 
@@ -38,7 +41,8 @@
         cancelSelectionBtn.classList.add('d-none');
         cancelSelectionBtn.classList.remove('d-ms-inline');
         selectionCheckboxes.forEach(cb => {
-            cb.style.display = 'none';
+            cb.classList.add('d-none');
+            cb.classList.remove('d-block');
             cb.checked = false;
         });
         deleteButtons.forEach(btn => btn.style.display = 'block');
