@@ -385,7 +385,6 @@ footer .officeNumber h3{
     display: inline-block;
 }
 
-/* 応募者一覧のボタンスタイル */
 #toggleSelectionMode,
 #deleteSelected,
 #cancelSelection {
