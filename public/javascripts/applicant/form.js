@@ -30,21 +30,21 @@ let isDuplicate = false;
 let isMaxLength = false;
 
 function setPhoneError(errorType) {
-  phoneNumberWarning.style.display = "none";
-  phoneNumberInvalidFeedback.style.display = "none";
-  phoneDuplicateWarning.style.display = "none";
+  phoneNumberWarning.classList.add("d-none");
+  phoneNumberInvalidFeedback.classList.add("d-none");
+  phoneDuplicateWarning.classList.add("d-none");
 
   switch (errorType) {
     case "notStartWith0":
-      phoneNumberWarning.style.display = "block";
+      phoneNumberWarning.classList.remove("d-none");
       phoneNumberInput.setCustomValidity("電話番号は0から始まる必要があります");
       break;
     case "invalidLength":
-      phoneNumberInvalidFeedback.style.display = "block";
+      phoneNumberInvalidFeedback.classList.remove("d-none");
       phoneNumberInput.setCustomValidity("0から始まる10桁または11桁の電話番号を入力してください");
       break;
     case "duplicate":
-      phoneDuplicateWarning.style.display = "block";
+      phoneDuplicateWarning.classList.remove("d-none");
       phoneNumberInput.setCustomValidity("この電話番号は既に申し込み頂いております");
       isDuplicate = true;
       break;
@@ -149,9 +149,9 @@ autoResize.call(requirementsTextarea);
           setTimeout(() => {
             form.reset();
             form.classList.remove("was-validated");
-            phoneNumberWarning.style.display = "none";
-            phoneNumberInvalidFeedback.style.display = "none";
-            phoneDuplicateWarning.style.display = "none";
+            phoneNumberWarning.classList.add("d-none");
+            phoneNumberInvalidFeedback.classList.add("d-none");
+            phoneDuplicateWarning.classList.add("d-none");
           }, 0);
         }
         form.classList.add("was-validated");
