@@ -385,6 +385,22 @@ footer .officeNumber h3{
     display: inline-block;
 }
 
+/* 応募者一覧のボタンスタイル */
+#toggleSelectionMode,
+#deleteSelected,
+#cancelSelection {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    #toggleSelectionMode,
+    #deleteSelected,
+    #cancelSelection {
+        width: auto;
+        min-width: 120px;
+    }
+}
+
 .success-page {
     text-align: center;
     position: relative;
@@ -496,10 +512,6 @@ footer .officeNumber h3{
     padding-left: 1.5rem;
 }
 
-.hidden,
-#deleteSelected,
-#cancelSelection,
-.selection-checkbox,
 #phoneNumberInvalidFeedback,
 #phoneNumberWarning,
 #phoneDuplicateWarning {

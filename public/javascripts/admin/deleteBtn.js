@@ -21,7 +21,9 @@
         isSelectionMode = true;
         toggleSelectionBtn.classList.add('d-none');
         deleteSelectedBtn.classList.remove('d-none');
+        deleteSelectedBtn.classList.add('d-ms-inline');
         cancelSelectionBtn.classList.remove('d-none');
+        cancelSelectionBtn.classList.add('d-ms-inline');
         selectionCheckboxes.forEach(cb => cb.style.display = 'block');
         deleteButtons.forEach(btn => btn.style.display = 'none');
     });
@@ -32,7 +34,9 @@
         isSelectionMode = false;
         toggleSelectionBtn.classList.remove('d-none');
         deleteSelectedBtn.classList.add('d-none');
+        deleteSelectedBtn.classList.remove('d-ms-inline');
         cancelSelectionBtn.classList.add('d-none');
+        cancelSelectionBtn.classList.remove('d-ms-inline');
         selectionCheckboxes.forEach(cb => {
             cb.style.display = 'none';
             cb.checked = false;

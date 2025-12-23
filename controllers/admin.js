@@ -13,11 +13,8 @@ module.exports.adminRegister = async (req, res, next) => {
     const registeredAdmin = await Admin.register(admin, password);
     req.login(registeredAdmin, (err) => {
       if (err) return next(err);
-      req.session.save((err) => {
-        if (err) return next(err);
-        req.flash("success", "管理人アカウントが登録されました！");
-        res.redirect("/admin/applicants");
-      });
+      req.flash("success", "管理人アカウントが登録されました！");
+      res.redirect("/admin/applicants");
     });
   } catch (e) {
     req.flash("error", "エラーが発生しました！");
@@ -34,12 +31,9 @@ module.exports.adminLogin = [
     failureFlash: true,
     failureRedirect: "/admin/login",
   }),
-  (req, res, next) => {
-    req.session.save((err) => {
-      if (err) return next(err);
-      req.flash("success", "ログインしました！");
-      res.redirect("/admin/applicants");
-    });
+  (req, res) => {
+    req.flash("success", "ログインしました！");
+    res.redirect("/admin/applicants");
   }
 ];
 
@@ -65,10 +59,7 @@ module.exports.changeAdmin = async (req, res, next) => {
   await user.save();
   req.login(user, (err) => {
     if (err) return next(err);
-    req.session.save((err) => {
-      if (err) return next(err);
-      req.flash("success", "管理人アカウント情報が変更されました！");
-      res.redirect("/admin/applicants");
-    });
+    req.flash("success", "管理人アカウント情報が変更されました！");
+    res.redirect("/admin/applicants");
   });
 };
