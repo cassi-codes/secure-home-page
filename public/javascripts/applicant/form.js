@@ -6,6 +6,8 @@ const minDate = minDateObj.toISOString().split("T")[0];
 
 const nameInput = document.getElementById("name");
 const birthDateInput = document.getElementById("birthDate");
+const birthDateRequiredFeedback = document.getElementById("birthDateRequiredFeedback");
+const birthDateInvalidFeedback = document.getElementById("birthDateInvalidFeedback");
 birthDateInput.max = maxDate;
 birthDateInput.min = minDate;
 
@@ -21,12 +23,38 @@ nameInput.addEventListener("input", validateName);
 nameInput.addEventListener("change", validateName);
 
 
-birthDateInput.addEventListener("blur", function () {
-  if (this.value) {
-    this.classList.add("is-valid");
-    this.classList.remove("is-invalid");
+function validateBirthDate() {
+  const inputDate = birthDateInput.value;
+
+  birthDateRequiredFeedback.classList.add("d-none");
+  birthDateInvalidFeedback.classList.add("d-none");
+
+  if (!inputDate) {
+    birthDateInput.classList.remove("is-valid");
+    birthDateInput.classList.remove("is-invalid");
+    birthDateInput.setCustomValidity("");
+    return;
   }
-});
+
+  const selectedDate = new Date(inputDate);
+  const min = new Date(minDate);
+  const max = new Date(maxDate);
+
+  if (selectedDate >= min && selectedDate <= max) {
+    birthDateInput.classList.add("is-valid");
+    birthDateInput.classList.remove("is-invalid");
+    birthDateInput.setCustomValidity("");
+  } else {
+    birthDateInput.classList.add("is-invalid");
+    birthDateInput.classList.remove("is-valid");
+    birthDateInvalidFeedback.classList.remove("d-none");
+    birthDateInput.setCustomValidity("正式な生年月日を入力して下さい");
+  }
+}
+
+birthDateInput.addEventListener("blur", validateBirthDate);
+birthDateInput.addEventListener("input", validateBirthDate);
+birthDateInput.addEventListener("change", validateBirthDate);
 
 birthDateInput.addEventListener(
   "focus",
@@ -151,6 +179,12 @@ phoneNumberInput.addEventListener("input", function () {
       "submit",
       (event) => {
         const phoneNumber = phoneNumberInput.value;
+        const birthDate = birthDateInput.value;
+
+        if (!birthDate) {
+          birthDateRequiredFeedback.classList.remove("d-none");
+          birthDateInput.classList.add("is-invalid");
+        }
 
         if (!phoneNumber || phoneNumber.length < 10) {
           setPhoneError("invalidLength");
@@ -170,6 +204,8 @@ phoneNumberInput.addEventListener("input", function () {
             phoneNumberWarning.classList.add("d-none");
             phoneNumberInvalidFeedback.classList.add("d-none");
             phoneDuplicateWarning.classList.add("d-none");
+            birthDateRequiredFeedback.classList.add("d-none");
+            birthDateInvalidFeedback.classList.add("d-none");
           }, 0);
         }
         form.classList.add("was-validated");

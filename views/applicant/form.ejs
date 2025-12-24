@@ -15,8 +15,11 @@
                     <div class="m-3">
                         <label class="mb-2 h5" for="birthDate">生年月日<small class="text-muted"><br class="d-sm-none">(例: 1990/01/01)</small></label>
                         <input class="form-control" type="date" name="applicant[birthDate]" id="birthDate" required>
-                        <div class="invalid-feedback">
+                        <div class="mt-1 d-none" id="birthDateRequiredFeedback">
                             生年月日を選択してください。
+                        </div>
+                        <div class="mt-1 d-none" id="birthDateInvalidFeedback">
+                            正式な生年月日を入力して下さい
                         </div>
                     </div>
                     <div class="m-3">

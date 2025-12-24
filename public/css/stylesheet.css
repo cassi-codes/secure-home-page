@@ -519,7 +519,9 @@ footer .officeNumber h3{
 
 #phoneNumberInvalidFeedback,
 #phoneNumberWarning,
-#phoneDuplicateWarning {
+#phoneDuplicateWarning,
+#birthDateRequiredFeedback,
+#birthDateInvalidFeedback {
     font-size: 0.875rem;
     color: #dc3545;
     margin-top: 0.25rem;
