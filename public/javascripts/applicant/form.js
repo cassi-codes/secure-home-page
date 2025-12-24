@@ -4,9 +4,29 @@ const minDateObj = new Date();
 minDateObj.setFullYear(today.getFullYear() - 100);
 const minDate = minDateObj.toISOString().split("T")[0];
 
+const nameInput = document.getElementById("name");
 const birthDateInput = document.getElementById("birthDate");
 birthDateInput.max = maxDate;
 birthDateInput.min = minDate;
+
+function validateName() {
+  if (nameInput.value.length >= 1) {
+    nameInput.classList.add("is-valid");
+    nameInput.classList.remove("is-invalid");
+  }
+}
+
+nameInput.addEventListener("blur", validateName);
+nameInput.addEventListener("input", validateName);
+nameInput.addEventListener("change", validateName);
+
+
+birthDateInput.addEventListener("blur", function () {
+  if (this.value) {
+    this.classList.add("is-valid");
+    this.classList.remove("is-invalid");
+  }
+});
 
 birthDateInput.addEventListener(
   "focus",
@@ -27,7 +47,6 @@ const phoneNumberInvalidFeedback = document.getElementById(
 );
 const phoneDuplicateWarning = document.getElementById("phoneDuplicateWarning");
 let isDuplicate = false;
-let isMaxLength = false;
 
 function setPhoneError(errorType) {
   phoneNumberWarning.classList.add("d-none");
@@ -56,36 +75,6 @@ function setPhoneError(errorType) {
   }
 }
 
-phoneNumberInput.addEventListener("input", function () {
-  let value = this.value.replace(/[０-９]/g, function (s) {
-    return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
-  });
-  value = value.replace(/[^0-9]/g, "");
-
-
-
-
-  if (value.length > 0 && !value.startsWith("0")) {
-    setPhoneError("notStartWith0");
-    value = "";
-    isMaxLength = false;
-  } else if (value.length > 11) {
-    setPhoneError("invalidLength");
-    value = value.slice(0, 11);
-    isMaxLength = true;
-  } else if (isMaxLength && value.length === 11) {
-    setPhoneError("invalidLength");
-  } else if (value.length === 10) {
-    setPhoneError("none");
-    isMaxLength = false;
-  } else {
-    setPhoneError("none");
-    isMaxLength = false;
-  }
-
-  this.value = value;
-});
-
 phoneNumberInput.addEventListener("blur", async function () {
   const phoneNumber = this.value;
 
@@ -95,12 +84,17 @@ phoneNumberInput.addEventListener("blur", async function () {
     phoneNumber.length <= 11 &&
     phoneNumber.startsWith("0")
   ) {
+    this.classList.add("is-valid");
+    this.classList.remove("is-invalid");
+
     try {
       const response = await fetch(`/api/check-phone/${phoneNumber}`);
       const data = await response.json();
 
       if (data.exists) {
         setPhoneError("duplicate");
+        this.classList.add("is-invalid");
+        this.classList.remove("is-valid");
       } else {
         setPhoneError("none");
       }
@@ -127,6 +121,30 @@ autoResize.call(requirementsTextarea);
 
 (() => {
   "use strict";
+
+
+phoneNumberInput.addEventListener("input", function () {
+  let value = this.value.replace(/[０-９]/g, function (s) {
+    return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+  });
+  value = value.replace(/[^0-9]/g, "");
+
+  if (value.length > 0 && !value.startsWith("0")) {
+    setPhoneError("notStartWith0");
+    value = "";
+  } else if (value.length > 11) {
+    setPhoneError("invalidLength");
+    value = value.slice(0, 11);
+  } else if (value.length === 10 || value.length === 11) {
+    setPhoneError("none");
+  } else {
+    setPhoneError("none");
+  }
+
+  this.value = value;
+});
+
+
   const forms = document.querySelectorAll(".needs-validation");
   Array.from(forms).forEach((form) => {
     form.addEventListener(
