@@ -77,6 +77,10 @@ app.use("/applicant", applicantRoutes);
 app.use("/admin/applicants", controlApplicantsRoutes);
 app.use("/admin", adminRoutes);
 
+app.get("/", (req, res) => {
+  res.redirect("/applicant/topPage");
+});
+
 app.get(
   "/api/check-phone/:phoneNumber",
   catchAsync(async (req, res) => {

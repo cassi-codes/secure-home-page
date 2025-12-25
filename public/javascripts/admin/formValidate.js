@@ -15,7 +15,7 @@
   nameInput.addEventListener("input", validateName);
   nameInput.addEventListener("change", validateName);
 
-  passwordInput.addEventListener("blur", function () {
+  passwordInput.addEventListener("input", function () {
     if (this.value.length >= 8) {
       this.classList.add("is-valid");
       this.classList.remove("is-invalid");

@@ -6,15 +6,19 @@ const minDate = minDateObj.toISOString().split("T")[0];
 
 const nameInput = document.getElementById("name");
 const birthDateInput = document.getElementById("birthDate");
-const birthDateRequiredFeedback = document.getElementById("birthDateRequiredFeedback");
-const birthDateInvalidFeedback = document.getElementById("birthDateInvalidFeedback");
+const birthDateRequiredFeedback = document.getElementById(
+  "birthDateRequiredFeedback"
+);
+const birthDateInvalidFeedback = document.getElementById(
+  "birthDateInvalidFeedback"
+);
 birthDateInput.max = maxDate;
 birthDateInput.min = minDate;
 
 function validateName() {
   if (nameInput.value.length >= 1) {
-    nameInput.classList.add("is-valid");
-    nameInput.classList.remove("is-invalid");
+    addValid(nameInput);
+    removeInvalid(nameInput);
   }
 }
 
@@ -22,16 +26,15 @@ nameInput.addEventListener("blur", validateName);
 nameInput.addEventListener("input", validateName);
 nameInput.addEventListener("change", validateName);
 
-
 function validateBirthDate() {
   const inputDate = birthDateInput.value;
 
-  birthDateRequiredFeedback.classList.add("d-none");
-  birthDateInvalidFeedback.classList.add("d-none");
+  addHidden(birthDateRequiredFeedback);
+  addHidden(birthDateInvalidFeedback);
 
   if (!inputDate) {
-    birthDateInput.classList.remove("is-valid");
-    birthDateInput.classList.remove("is-invalid");
+    removeValid(birthDateInput);
+    removeInvalid(birthDateInput);
     birthDateInput.setCustomValidity("");
     return;
   }
@@ -41,13 +44,13 @@ function validateBirthDate() {
   const max = new Date(maxDate);
 
   if (selectedDate >= min && selectedDate <= max) {
-    birthDateInput.classList.add("is-valid");
-    birthDateInput.classList.remove("is-invalid");
+    addValid(birthDateInput);
+    removeInvalid(birthDateInput);
     birthDateInput.setCustomValidity("");
   } else {
-    birthDateInput.classList.add("is-invalid");
-    birthDateInput.classList.remove("is-valid");
-    birthDateInvalidFeedback.classList.remove("d-none");
+    addInvalid(birthDateInput);
+    removeValid(birthDateInput);
+    removeHidden(birthDateInvalidFeedback);
     birthDateInput.setCustomValidity("正式な生年月日を入力して下さい");
   }
 }
@@ -68,6 +71,26 @@ birthDateInput.addEventListener(
 
 
 
+
+function addValid(ele) {
+  ele.classList.add("is-valid");
+}
+function addInvalid(ele) {
+  ele.classList.add("is-invalid");
+}
+function removeValid(ele) {
+  ele.classList.remove("is-valid");
+}
+function removeInvalid(ele) {
+  ele.classList.remove("is-invalid");
+}
+function addHidden(ele) {
+  ele.classList.add("d-none");
+}
+function removeHidden(ele) {
+  ele.classList.remove("d-none");
+}
+
 const phoneNumberInput = document.getElementById("phoneNumber");
 const phoneNumberWarning = document.getElementById("phoneNumberWarning");
 const phoneNumberInvalidFeedback = document.getElementById(
@@ -75,24 +98,42 @@ const phoneNumberInvalidFeedback = document.getElementById(
 );
 const phoneDuplicateWarning = document.getElementById("phoneDuplicateWarning");
 let isDuplicate = false;
+let phoneNumberFocusCount = 0;
+
+phoneNumberInput.addEventListener("focus", function () {
+  phoneNumberFocusCount++;
+
+  if (phoneNumberFocusCount >= 2) {
+    setPhoneError("none");
+    removeValid(this);
+    removeInvalid(this);
+    addHidden(phoneNumberWarning);
+    addHidden(phoneNumberInvalidFeedback);
+    addHidden(phoneDuplicateWarning);
+  }
+});
 
 function setPhoneError(errorType) {
-  phoneNumberWarning.classList.add("d-none");
-  phoneNumberInvalidFeedback.classList.add("d-none");
-  phoneDuplicateWarning.classList.add("d-none");
+  addHidden(phoneNumberWarning);
+  addHidden(phoneNumberInvalidFeedback);
+  addHidden(phoneDuplicateWarning);
 
   switch (errorType) {
     case "notStartWith0":
-      phoneNumberWarning.classList.remove("d-none");
+      removeHidden(phoneNumberWarning);
       phoneNumberInput.setCustomValidity("電話番号は0から始まる必要があります");
       break;
     case "invalidLength":
-      phoneNumberInvalidFeedback.classList.remove("d-none");
-      phoneNumberInput.setCustomValidity("0から始まる10桁または11桁の電話番号を入力してください");
+      removeHidden(phoneNumberInvalidFeedback);
+      phoneNumberInput.setCustomValidity(
+        "0から始まる10桁または11桁の電話番号を入力してください"
+      );
       break;
     case "duplicate":
-      phoneDuplicateWarning.classList.remove("d-none");
-      phoneNumberInput.setCustomValidity("この電話番号は既に申し込み頂いております");
+      removeHidden(phoneDuplicateWarning);
+      phoneNumberInput.setCustomValidity(
+        "この電話番号は既に申し込み頂いております"
+      );
       isDuplicate = true;
       break;
     case "none":
@@ -103,17 +144,21 @@ function setPhoneError(errorType) {
   }
 }
 
+
 phoneNumberInput.addEventListener("blur", async function () {
   const phoneNumber = this.value;
 
-  if (
+  if (phoneNumber.length < 10) {
+    setPhoneError("invalidLength");
+    addInvalid(this);
+  } else if (
     phoneNumber &&
     phoneNumber.length >= 10 &&
     phoneNumber.length <= 11 &&
     phoneNumber.startsWith("0")
   ) {
-    this.classList.add("is-valid");
-    this.classList.remove("is-invalid");
+    addValid(this);
+    removeInvalid(this);
 
     try {
       const response = await fetch(`/api/check-phone/${phoneNumber}`);
@@ -121,8 +166,8 @@ phoneNumberInput.addEventListener("blur", async function () {
 
       if (data.exists) {
         setPhoneError("duplicate");
-        this.classList.add("is-invalid");
-        this.classList.remove("is-valid");
+        addInvalid(this);
+        removeValid(this);
       } else {
         setPhoneError("none");
       }
@@ -132,11 +177,6 @@ phoneNumberInput.addEventListener("blur", async function () {
   }
 });
 
-
-
-
-
-
 const requirementsTextarea = document.getElementById("requirements");
 function autoResize() {
   this.style.height = "auto";
@@ -145,33 +185,35 @@ function autoResize() {
 requirementsTextarea.addEventListener("input", autoResize);
 autoResize.call(requirementsTextarea);
 
-
-
 (() => {
   "use strict";
 
+  phoneNumberInput.addEventListener("input", function () {
+    let value = this.value.replace(/[０-９]/g, function (s) {
+      return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+    });
+    value = value.replace(/[^0-9]/g, "");
+    removeValid(this);
+    removeInvalid(this);
 
-phoneNumberInput.addEventListener("input", function () {
-  let value = this.value.replace(/[０-９]/g, function (s) {
-    return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+
+    if (value.length > 0 && !value.startsWith("0")) {
+      setPhoneError("notStartWith0");
+      value = "";
+      addInvalid(this);
+    } else if (value.length > 11) {
+      setPhoneError("invalidLength");
+      value = value.slice(0, 11);
+      addInvalid(this);
+    } else if (value.length === 10 || value.length === 11) {
+      setPhoneError("none");
+      addValid(this);
+    } else {
+      setPhoneError("none");
+    }
+
+    this.value = value;
   });
-  value = value.replace(/[^0-9]/g, "");
-
-  if (value.length > 0 && !value.startsWith("0")) {
-    setPhoneError("notStartWith0");
-    value = "";
-  } else if (value.length > 11) {
-    setPhoneError("invalidLength");
-    value = value.slice(0, 11);
-  } else if (value.length === 10 || value.length === 11) {
-    setPhoneError("none");
-  } else {
-    setPhoneError("none");
-  }
-
-  this.value = value;
-});
-
 
   const forms = document.querySelectorAll(".needs-validation");
   Array.from(forms).forEach((form) => {
@@ -182,8 +224,8 @@ phoneNumberInput.addEventListener("input", function () {
         const birthDate = birthDateInput.value;
 
         if (!birthDate) {
-          birthDateRequiredFeedback.classList.remove("d-none");
-          birthDateInput.classList.add("is-invalid");
+          removeHidden(birthDateRequiredFeedback);
+          addInvalid(birthDateInput);
         }
 
         if (!phoneNumber || phoneNumber.length < 10) {
@@ -201,11 +243,11 @@ phoneNumberInput.addEventListener("input", function () {
           setTimeout(() => {
             form.reset();
             form.classList.remove("was-validated");
-            phoneNumberWarning.classList.add("d-none");
-            phoneNumberInvalidFeedback.classList.add("d-none");
-            phoneDuplicateWarning.classList.add("d-none");
-            birthDateRequiredFeedback.classList.add("d-none");
-            birthDateInvalidFeedback.classList.add("d-none");
+            addHidden(phoneNumberWarning);
+            addHidden(phoneNumberInvalidFeedback);
+            addHidden(phoneDuplicateWarning);
+            addHidden(birthDateRequiredFeedback);
+            addHidden(birthDateInvalidFeedback);
           }, 0);
         }
         form.classList.add("was-validated");
