@@ -44,10 +44,15 @@
 - Bootstrap（UI/レスポンシブデザイン）
 
 ・デモ: ホームページ[https://secure-home-page.onrender.com/applicant/topPage]
+
 (https://secure-home-page.onrender.com/applicant/topPage)
+
 管理者ページ[https://secure-home-page.onrender.com/admin/login]
+
 (https://secure-home-page.onrender.com/admin/login)
+
 名前:うつい パスワード:12345678
+
 
 ・機能詳細
 
