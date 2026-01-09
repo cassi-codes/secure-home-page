@@ -1,0 +1,510 @@
+/* ===== NAVBAR STYLES (partials/navbar.ejs) ===== */
+/* Navbar */
+.navbar-custom {
+    background: linear-gradient(135deg, #FF9B85 0%, #FFEB3B 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand-text {
+    color: white;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.navbar-brand-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FFFDE7;
+    transition: width 0.3s ease;
+}
+
+.navbar-brand-text:hover {
+    transform: translateY(-2px);
+    color: #FFFDE7;
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(255, 253, 231, 0.6);
+}
+
+.navbar-brand-text:hover::after {
+    width: 100%;
+}
+
+.navbar-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler-custom {
+    border: 2px solid white;
+}
+
+.navbar-toggler-icon-custom {
+    filter: brightness(0) invert(1);
+}
+
+/* Navbar Buttons */
+.btn-gradient-green {
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(76, 205, 153, 0.4);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #4CCD99 0%, #80CBC4 100%);
+    border: none;
+}
+
+.btn-gradient-pink {
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF9B85 100%);
+    border: none;
+}
+
+.btn-gradient-red {
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 82, 82, 0.4);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #FF5252 0%, #FF6B9D 100%);
+    border: none;
+}
+
+.btn-gradient-cyan {
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(77, 208, 225, 0.4);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #4DD0E1 0%, #80CBC4 100%);
+    border: none;
+}
+
+.navbar-icon {
+    fill: white !important;
+}
+
+.navbar-btn-text {
+    color: white;
+}
+
+/* Navbar グラデーションボタン */
+.btn-gradient-green:hover {
+    background: linear-gradient(135deg, #3eb885 0%, #6bb8a8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(76, 205, 153, 0.5) !important;
+}
+
+.btn-gradient-pink:hover {
+    background: linear-gradient(135deg, #ff5088 0%, #ff8570 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.5) !important;
+}
+
+.btn-gradient-red:hover {
+    background: linear-gradient(135deg, #e63d3d 0%, #ff5088 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 82, 82, 0.5) !important;
+}
+
+.btn-gradient-cyan:hover {
+    background: linear-gradient(135deg, #3bbcc9 0%, #6bb8a8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(77, 208, 225, 0.5) !important;
+}
+
+/* ボタンアニメーション */
+nav .btn {
+    position: relative;
+    overflow: hidden;
+}
+
+nav .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+nav .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* モバイル対応 */
+@media (max-width: 767px) {
+    .navbar-brand-text {
+        font-size: 1rem !important;
+    }
+
+    nav .btn {
+        width: 100%;
+        justify-content: center !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    #navbarSupportedContent {
+        margin-top: 1rem;
+    }
+}
+
+/* ハンバーガーメニューのアニメーション */
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.3);
+}
+
+/* ===== FOOTER STYLES (partials/footer.ejs) ===== */
+/* Footer Background */
+.footer-bg {
+    background: linear-gradient(135deg, #4DD0E1 0%, #8BC34A 100%);
+    color: white;
+    padding: 3rem 0 1rem 0;
+}
+
+/* Footer Logo */
+.footer-logo {
+    max-width: 280px;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Footer Company Cards */
+.footer-company-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Circles */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-circle-care {
+    background: linear-gradient(135deg, #FF9B85, #FFEB3B);
+}
+
+.icon-circle-nursing {
+    background: linear-gradient(135deg, #4CCD99, #80CBC4);
+}
+
+.icon-circle-support {
+    background: linear-gradient(135deg, #4DD0E1, #FF6B9D);
+}
+
+.icon-svg {
+    fill: white !important;
+}
+
+/* Card Titles */
+.card-title-care {
+    color: #FF9B85;
+    font-size: 1.3rem;
+}
+
+.card-title-nursing {
+    color: #4CCD99;
+    font-size: 1.3rem;
+}
+
+.card-title-support {
+    color: #4DD0E1;
+    font-size: 1.3rem;
+}
+
+/* Company Name */
+.company-name {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Service Names */
+.service-name-care {
+    color: #FF6B9D;
+    font-size: 1rem;
+}
+
+/* Service Description */
+.service-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Contact Info */
+.contact-info {
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+/* Business Number Box */
+.business-number-box {
+    background: #f8f9fa;
+    padding: 0.8rem;
+    border-radius: 10px;
+}
+
+.business-number-care {
+    border-left: 4px solid #FF9B85;
+}
+
+.business-number-nursing {
+    border-left: 4px solid #4CCD99;
+}
+
+.business-number-support {
+    border-left: 4px solid #4DD0E1;
+}
+
+.business-number-title-care {
+    color: #FF9B85;
+}
+
+.business-number-title-nursing {
+    color: #4CCD99;
+}
+
+.business-number-title-support {
+    color: #4DD0E1;
+}
+
+.business-number-item {
+    font-size: 0.8rem;
+}
+
+/* Copyright Section */
+.copyright-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copyright-text {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Footer Card Hover Effect */
+.footer-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .footer-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* ===== FLASH MESSAGE STYLES (partials/flash.ejs) ===== */
+.flash-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+    width: calc(100% - 40px);
+}
+
+@media (max-width: 576px) {
+    .flash-container {
+        top: 70px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
+    }
+}
+
+.flash-message {
+    border: none;
+    border-radius: 15px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    animation: slideInRight 0.4s ease-out, fadeIn 0.4s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.flash-message::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+}
+
+.flash-success {
+    background: linear-gradient(135deg, #42A5F5 0%, #81D4FA 100%);
+    color: white;
+    border: 2px solid #2196F3;
+}
+
+.flash-success::before {
+    background: linear-gradient(180deg, #2196F3 0%, #42A5F5 100%);
+}
+
+.flash-danger {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.95) 0%, rgba(247, 168, 196, 0.95) 100%);
+    color: white;
+}
+
+.flash-danger::before {
+    background: linear-gradient(180deg, #ec3777 0%, #FF6B9D 100%);
+}
+
+.flash-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.flash-icon svg {
+    fill: white;
+}
+
+.flash-success .flash-icon {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.flash-success .flash-icon svg {
+    fill: white;
+}
+
+.flash-content {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.flash-close {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    opacity: 0.9;
+}
+
+.flash-close:hover {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.flash-close::before,
+.flash-close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: white;
+}
+
+.flash-success .flash-close {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.flash-success .flash-close:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.flash-success .flash-close::before,
+.flash-success .flash-close::after {
+    background: white;
+}
+
+.flash-close::before {
+    transform: rotate(45deg);
+}
+
+.flash-close::after {
+    transform: rotate(-45deg);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.flash-message.fade-out {
+    animation: fadeOut 0.4s ease-out forwards;
+}

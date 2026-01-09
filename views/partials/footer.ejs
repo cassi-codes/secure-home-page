@@ -1,68 +1,108 @@
-<footer class="container-fluid bg-secondary mt-auto">
-    <div class="row pt-4 " id="foot">
-        <div class="col-4 col-md-3 ">
-            <img src="/images/05.png" alt="first img" class="img-fluid">
-        </div>
-    </div>
-
-    <% if(!currentUser){ %>
-        <div class="row justify-content-center align-items-center mt-3">
-            <div class="col-10 col-md-6">
-                <div class="text-center mb-5">
-                    <h1>
-                        <p>運営会社 株式会社セキュア</p>
-                        <p>ケアサポートセキュア</p>
-                    </h1>
-                    <h2>
-                        <p>訪問介護、障がい者居宅介護、重度訪問介護</p>
-                    </h2>
-                    <h3>〒557-0025</h3>
-                    <h3>大阪市西成区長橋1ー10ー14</h3>
-                    <h3>TEL 06-6654-9680 FAX 06-6654-9760</h3>
-                    <div class="officeNumber">
-                        <h3>事業所番号</h3>
-                        <h3>訪問介護:27722304255</h3>
-                        <h3>行動援護:2712302146</h3>
-                        <h3>障がい者居宅介護・重度訪問介護:2712302146</h3>
-                    </div>
-                </div>
+<footer class="mt-auto footer-bg">
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <img src="/images/05.png" alt="せきゅあロゴ" class="img-fluid footer-logo">
             </div>
         </div>
 
-        <div class="row justify-content-center align-items-center">
-            <div class="col-10 col-md-6">
-                <div class="text-center mb-5">
-                    <h1>
-                        <p>せきゅあ訪問看護ステーション</p>
-                    </h1>
-                    <h2>
-                        <p>訪問看護</p>
-                    </h2>
-                    <h3>〒557-0025</h3>
-                    <h3>大阪市西成区長橋3-3-28</h3>
-                    <h3>TEL 06-7777-3625 FAX 06-6964-8302</h3>
-                    <div class="officeNumber">
-                        <h3>事業所番号</h3>
-                        <h3>訪問看護:2763310941</h3>
+        <% if(!currentUser){ %>
+        <!-- Company Info Cards -->
+        <div class="row g-4 mb-4">
+            <!-- Card 1: ケアサポートセキュア -->
+            <div class="col-12 col-lg-4">
+                <div class="footer-card footer-company-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle icon-circle-care me-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16" class="icon-svg">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                            </svg>
+                        </div>
+                        <h3 class="mb-0 fw-bold card-title-care">運営会社</h3>
+                    </div>
+                    <h4 class="fw-bold mb-2 company-name">株式会社セキュア</h4>
+                    <h5 class="fw-semibold mb-3 service-name-care">ケアサポートセキュア</h5>
+                    <p class="mb-3 service-description">訪問介護、障がい者居宅介護、重度訪問介護</p>
+                    <div class="contact-info">
+                        <p class="mb-1"><strong>📍 住所:</strong> 〒557-0025</p>
+                        <p class="mb-2">大阪市西成区長橋1-10-14</p>
+                        <p class="mb-1"><strong>📞 TEL:</strong> 06-6654-9680</p>
+                        <p class="mb-3"><strong>📠 FAX:</strong> 06-6654-9760</p>
+                        <div class="business-number-box business-number-care">
+                            <p class="mb-1 fw-semibold business-number-title-care">事業所番号</p>
+                            <p class="mb-1 business-number-item">訪問介護: 27722304255</p>
+                            <p class="mb-1 business-number-item">行動援護: 2712302146</p>
+                            <p class="mb-0 business-number-item">障がい者居宅介護・重度訪問介護: 2712302146</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center align-items-center">
-            <div class="col-10 col-md-6">
-                <div class="text-center mb-4">
-                    <h1>相談支援事業所せきゅあ</h1>
-                    <h3>〒557-0025</h3>
-                    <h3>大阪市西成区鶴見橋2丁目3番25号</h3>
-                    <h3>TEL 06-6585-9805 FAX 06-6585-9806</h3>
-                    <div class="officeNumber">
-                        <h3>事業所番号</h3>
-                        <h3></h3>
+            <!-- Card 2: せきゅあ訪問看護ステーション -->
+            <div class="col-12 col-lg-4">
+                <div class="footer-card footer-company-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle icon-circle-nursing me-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16" class="icon-svg">
+                                <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                            </svg>
+                        </div>
+                        <h3 class="mb-0 fw-bold card-title-nursing">訪問看護</h3>
+                    </div>
+                    <h4 class="fw-bold mb-3 company-name">せきゅあ訪問看護ステーション</h4>
+                    <p class="mb-3 service-description">訪問看護サービス</p>
+                    <div class="contact-info">
+                        <p class="mb-1"><strong>📍 住所:</strong> 〒557-0025</p>
+                        <p class="mb-2">大阪市西成区長橋3-3-28</p>
+                        <p class="mb-1"><strong>📞 TEL:</strong> 06-7777-3625</p>
+                        <p class="mb-3"><strong>📠 FAX:</strong> 06-6964-8302</p>
+                        <div class="business-number-box business-number-nursing">
+                            <p class="mb-1 fw-semibold business-number-title-nursing">事業所番号</p>
+                            <p class="mb-0 business-number-item">訪問看護: 2763310941</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: 相談支援事業所せきゅあ -->
+            <div class="col-12 col-lg-4">
+                <div class="footer-card footer-company-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle icon-circle-support me-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16" class="icon-svg">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                            </svg>
+                        </div>
+                        <h3 class="mb-0 fw-bold card-title-support">相談支援</h3>
+                    </div>
+                    <h4 class="fw-bold mb-3 company-name">相談支援事業所せきゅあ</h4>
+                    <div class="contact-info">
+                        <p class="mb-1"><strong>📍 住所:</strong> 〒557-0025</p>
+                        <p class="mb-2">大阪市西成区鶴見橋2-3-25</p>
+                        <p class="mb-1"><strong>📞 TEL:</strong> 06-6585-9805</p>
+                        <p class="mb-3"><strong>📠 FAX:</strong> 06-6585-9806</p>
+                        <div class="business-number-box business-number-support">
+                            <p class="mb-1 fw-semibold business-number-title-support">事業所番号</p>
+                            <p class="mb-0 business-number-item">///</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <% } %>
 
+        <!-- Copyright -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="text-center py-3 copyright-section">
+                    <p class="mb-0 copyright-text">
+                        &copy; 2024 せきゅあ訪問看護ステーション All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>

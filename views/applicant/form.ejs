@@ -1,64 +1,117 @@
 <% layout('layouts/boilerplate') %>
+<% block('styles').append('<link rel="stylesheet" href="/css/applicant.css">') %>
 
-<div class="container-fluid">
-    <div class="row justify-content-center m-5">
-        <div class="col-lg-6 col-md-8 custom-bg p-4">
-            <h1 class="text-center">お問い合わせ<br class="d-sm-none">フォーム</h1>
+<div class="container-fluid form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h1>
+                <span class="header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                </span>
+                お問い合わせフォーム
+            </h1>
+        </div>
+
+        <div class="form-content">
             <form action="/admin/applicants" method="POST" novalidate class="needs-validation">
-                    <div class="m-3">
-                        <label class="mb-2 h5" for="name">名前</label>
-                        <input class="form-control" type="text" id="name" name="applicant[name]" placeholder="田中花子" required>
-                        <div class="invalid-feedback">
-                            名前を入力してください。
-                        </div>
+                <div class="form-group">
+                    <label class="form-label" for="name">
+                        <span class="label-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                            </svg>
+                        </span>
+                        名前
+                    </label>
+                    <input class="form-control" type="text" id="name" name="applicant[name]" placeholder="田中花子" required>
+                    <div class="invalid-feedback">
+                        名前を入力してください。
                     </div>
-                    <div class="m-3">
-                        <label class="mb-2 h5" for="birthDate">生年月日<small class="text-muted"><br class="d-sm-none">(例: 1990/01/01)</small></label>
-                        <input class="form-control" type="date" name="applicant[birthDate]" id="birthDate" required>
-                        <div class="mt-1 d-none" id="birthDateRequiredFeedback">
-                            生年月日を選択してください。
-                        </div>
-                        <div class="mt-1 d-none" id="birthDateInvalidFeedback">
-                            正式な生年月日を入力して下さい
-                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="birthDate">
+                        <span class="label-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                        </span>
+                        生年月日
+                        <small class="text-muted">(例: 1990/01/01)</small>
+                    </label>
+                    <input class="form-control" type="date" name="applicant[birthDate]" id="birthDate" required>
+                    <div class="text-danger small mt-1 d-none" id="birthDateRequiredFeedback">
+                        生年月日を選択してください。
                     </div>
-                    <div class="m-3">
-                        <label class="mb-2 h5" for="phoneNumber">電話番号</label>
-                        <input class="form-control" type="tel" name="applicant[phoneNumber]" id="phoneNumber"
-                            placeholder="09012341234" pattern="0[0-9]{9,10}" required>
-                        <div class="mt-1 d-none" id="phoneNumberInvalidFeedback">
-                            0から始まる10桁または<br class="d-sm-none">11桁の電話番号を<br class="d-sm-none">入力してください。
-                        </div>
-                        <div class="mt-1 d-none" id="phoneNumberWarning">
-                            電話番号は0から始まる<br class="d-sm-none">必要があります
-                        </div>
-                        <div class="mt-1 d-none" id="phoneDuplicateWarning">
-                            この電話番号は<br class="d-sm-none">既に申し込み頂いております
-                        </div>
+                    <div class="text-danger small mt-1 d-none" id="birthDateInvalidFeedback">
+                        正式な生年月日を入力して下さい
                     </div>
-                    <div class="m-3">
-                        <label class="mb-2 h5" for="requirements">要件</label>
-                        <textarea class="form-control" id="requirements" name="applicant[requirements]" rows="5" placeholder="ご要望やご質問がありましたらご記入ください"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phoneNumber">
+                        <span class="label-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                            </svg>
+                        </span>
+                        電話番号
+                    </label>
+                    <input class="form-control" type="tel" name="applicant[phoneNumber]" id="phoneNumber"
+                        placeholder="09012341234" pattern="0[0-9]{9,10}" required>
+                    <div class="text-danger small mt-1 d-none" id="phoneNumberInvalidFeedback">
+                        0から始まる10桁または11桁の電話番号を入力してください。
                     </div>
-                    <h5 class="m-3">職業</h5>
-                    <div class="col-md-6 ms-5">
-                        <% for (let category of categories){ %>
-                            <div class="mb-3 form-check">
-                                <input type="radio" name="applicant[category]" id="applicant:<%= category %>"
-                                    value="<%= category %>" <% if(category === categories[0]){ %>checked <% } %>>
-                                <label class="form-check-label" for="applicant:<%= category %>">
-                                    <%= category %>
-                                </label>
-                            </div>
-                            <% } %>
+                    <div class="text-danger small mt-1 d-none" id="phoneNumberWarning">
+                        電話番号は0から始まる必要があります
                     </div>
-            
-            
-                    <div class="text-center">
-                        <button class="btn btn-success w-50 mt-3 text-white">送信</button>
+                    <div class="text-danger small mt-1 d-none" id="phoneDuplicateWarning">
+                        この電話番号は既に申し込み頂いております
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="requirements">
+                        <span class="label-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">
+                                <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+                                <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2z"/>
+                            </svg>
+                        </span>
+                        要件
+                    </label>
+                    <textarea class="form-control" id="requirements" name="applicant[requirements]" rows="5" placeholder="ご要望やご質問がありましたらご記入ください"></textarea>
+                </div>
+
+                <div class="category-section">
+                    <div class="category-title">
+                        <span class="category-title-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                            </svg>
+                        </span>
+                        職業
+                    </div>
+                    <% for (let category of categories){ %>
+                        <label class="form-check">
+                            <input class="form-check-input" type="radio" name="applicant[category]"
+                                value="<%= category %>" <% if(category === categories[0]){ %> checked <% } %>>
+                            <span class="form-check-label">
+                                <%= category %>
+                            </span>
+                        </label>
+                    <% } %>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-submit" type="submit">送信する</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
-    <script src="/javascripts/applicant/form.js"></script>
+
+<script src="/javascripts/applicant/form.js"></script>

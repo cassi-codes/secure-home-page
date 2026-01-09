@@ -15,10 +15,33 @@ const birthDateInvalidFeedback = document.getElementById(
 birthDateInput.max = maxDate;
 birthDateInput.min = minDate;
 
+
+function addValid(ele) {
+  ele.classList.add("is-valid");
+}
+function addInvalid(ele) {
+  ele.classList.add("is-invalid");
+}
+function removeValid(ele) {
+  ele.classList.remove("is-valid");
+}
+function removeInvalid(ele) {
+  ele.classList.remove("is-invalid");
+}
+function addHidden(ele) {
+  ele.classList.add("d-none");
+}
+function removeHidden(ele) {
+  ele.classList.remove("d-none");
+}
+
 function validateName() {
   if (nameInput.value.length >= 1) {
     addValid(nameInput);
     removeInvalid(nameInput);
+  }else{
+    addInvalid(nameInput);
+    removeValid(nameInput);
   }
 }
 
@@ -72,24 +95,6 @@ birthDateInput.addEventListener(
 
 
 
-function addValid(ele) {
-  ele.classList.add("is-valid");
-}
-function addInvalid(ele) {
-  ele.classList.add("is-invalid");
-}
-function removeValid(ele) {
-  ele.classList.remove("is-valid");
-}
-function removeInvalid(ele) {
-  ele.classList.remove("is-invalid");
-}
-function addHidden(ele) {
-  ele.classList.add("d-none");
-}
-function removeHidden(ele) {
-  ele.classList.remove("d-none");
-}
 
 const phoneNumberInput = document.getElementById("phoneNumber");
 const phoneNumberWarning = document.getElementById("phoneNumberWarning");
@@ -162,7 +167,7 @@ phoneNumberInput.addEventListener("blur", async function () {
 
     try {
       const response = await fetch(`/api/check-phone/${phoneNumber}`);
-      const data = await response.json();
+      const data = response.json();
 
       if (data.exists) {
         setPhoneError("duplicate");

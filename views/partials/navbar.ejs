@@ -1,29 +1,50 @@
-<nav class="navbar navbar-expand-md sticky-top bg-primary d-flex">
-    <div class="container-fluid">
-        <a href="/applicant/topPage" class="text-decoration-none navbar-brand">
-            <div class="navbar-brand">せきゅあ訪問看護ステーション</div>
+<nav class="navbar navbar-expand-md sticky-top navbar-custom">
+    <div class="container-fluid px-2">
+        <a href="/applicant/topPage" class="text-decoration-none navbar-brand d-flex align-items-center">
+            <div class="navbar-brand fw-bold d-flex align-items-center navbar-brand-text">
+                <img src="/images/05.png" alt="せきゅあロゴ" class="me-2 navbar-logo">
+                せきゅあ訪問看護ステーション
+            </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
         </button>
         <% if(!currentUser){ %>
             <div class="collapse navbar-collapse text-end" id="navbarSupportedContent">
-                <a href="tel:06-7777-3625" class="btn bg-primary btn-outline-dark navbar-btn-phone m-2 ms-auto">
+                <a href="tel:06-7777-3625" class="btn btn-gradient-green m-2 ms-auto d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        class="bi bi-telephone-fill me-2 navbar-icon" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
                             d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
                     </svg>
+                    <span class="navbar-btn-text">電話する</span>
                 </a>
-                <button type="button" class="btn bg-primary btn-outline-dark m-2">
-                    <a href="/applicant/form" class="text-decoration-none text-dark">応募する</a>
-                </button>
+                <a href="/applicant/form" class="btn btn-gradient-pink m-2 d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square me-2 navbar-icon" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    <span class="navbar-btn-text">応募する</span>
+                </a>
             </div>
             <% }else{ %>
                 <div class="collapse navbar-collapse text-end" id="navbarSupportedContent">
-                    <a class="btn bg-primary btn-outline-dark mx-2 ms-auto" href="/admin/logout">ログアウト</a>
-                    <a class="btn bg-primary btn-outline-dark mx-2" href="/admin/changeAdmin">アカウント情報変更</a>
+                    <a class="btn btn-gradient-red mx-2 ms-auto d-flex align-items-center" href="/admin/logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right me-2 navbar-icon" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg>
+                        <span class="navbar-btn-text">ログアウト</span>
+                    </a>
+                    <a class="btn btn-gradient-cyan mx-2 d-flex align-items-center" href="/admin/changeAdmin">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-gear me-2 navbar-icon" viewBox="0 0 16 16">
+                            <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                            <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44c0 .12.1.2.2.2h.5c.1 0 .2-.08.2-.2v-.44c.844-.056 1.315-.52 1.362-1.116.047-.596-.406-1.05-1.097-1.176l-.548-.137c-.29-.073-.49-.25-.49-.563 0-.313.2-.49.49-.563l.548-.137c.69-.127 1.144-.58 1.097-1.176-.047-.596-.518-1.06-1.362-1.116v-.44c0-.12-.1-.2-.2-.2h-.5c-.1 0-.2.08-.2.2v.44c-.845.056-1.316.52-1.363 1.116-.047.596.406 1.05 1.097 1.176l.548.137c.29.073.49.25.49.563 0 .313-.2.49-.49.563l-.548.137c-.69.127-1.144.58-1.097 1.176M11 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                        </svg>
+                        <span class="navbar-btn-text">アカウント情報</span>
+                    </a>
                 </div>
                 <% } %>
+    </div>
 </nav>

@@ -1,126 +1,171 @@
 <% layout('layouts/boilerplate') %>
+<% block('styles').append('<link rel="stylesheet" href="/css/applicant.css">') %>
 
-    <section>
-        <div class="container-fluid px-0">
-            <img class="img-fluid w-100" src="/images/headingbackgroundimage-1.png" alt="img">
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container-fluid px-0">
+        <div class="position-relative">
+            <img class="img-fluid w-100 hero-image" src="/images/headingbackgroundimage-1.png" alt="Hero Image">
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-        <div class="container mt-4">
-            <div>
-                <h1 class="text-primary TopPageBg">精神訪問看護とは</h1>
-            </div>
-            <div class="TopPageBg mt-1">
-                <p>精神疾患や精神障害を抱える地域住民の方へ、看護師・作業療法士が自宅を訪問し支援をさせていただくことです。</p>
-                <p>コミュニケーションを通じて精神状態や生活状況を観察し、利用者の良好な状態を維持または回復するためにサポートします。</p>
-                <p>
-                    チームとして主治医や関連機関と連携しながら、疾患名で一括りにするのではなく、性別や年齢、病状、服薬状況など個々の違いを考慮し、ひとりひとりのニーズに焦点を当てた適切な看護ケアが実践されます。</p>
+<!-- About Section -->
+<section class="py-5 about-section-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="modern-card p-4 p-md-5 modern-card-custom">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle me-3 icon-circle-cyan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                            </svg>
+                        </div>
+                        <h2 class="mb-0 fw-bold section-heading-pink">精神訪問看護とは</h2>
+                    </div>
+                    <div class="content-text content-text-spacing">
+                        <p class="fs-5 mb-3 text-dark-custom">精神疾患や精神障害を抱える地域住民の方へ、看護師・作業療法士が自宅を訪問し支援をさせていただくことです。</p>
+                        <p class="fs-5 mb-3 text-dark-custom">コミュニケーションを通じて精神状態や生活状況を観察し、利用者の良好な状態を維持または回復するためにサポートします。</p>
+                        <p class="fs-5 mb-0 text-dark-custom">チームとして主治医や関連機関と連携しながら、疾患名で一括りにするのではなく、性別や年齢、病状、服薬状況など個々の違いを考慮し、ひとりひとりのニーズに焦点を当てた適切な看護ケアが実践されます。</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-        <div class="container mt-4">
-            <div>
-                <h1 class="text-primary TopPageBg">せきゅあ訪問看護<br class="d-sm-none">ステーションとは</h1>
+<!-- About Us Section -->
+<section class="py-5 about-us-section-bg">
+    <div class="container">
+        <div class="modern-card p-4 p-md-5 modern-card-custom">
+            <div class="d-flex align-items-center mb-4">
+                <div class="icon-circle me-3 icon-circle-orange">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                    </svg>
+                </div>
+                <h2 class="mb-0 fw-bold section-heading-green">せきゅあ訪問看護ステーションとは</h2>
             </div>
-            <div class="TopPageBg mt-1">
-                <p>合同会社セキュアはケアサポートセキュアとせきゅあ訪問看護ステーションと連携し、利用者の心身の状況や家庭環境等を踏まえ、
-                    関係法令及びこの契約の定めに基づき、関係する市町村や事業者、地域の保健・医療・福祉サービス等と綿密な連携を図りながら、
-                    利用者の個々の主体性を尊重し、適切なサービスの提供に努めます。</p>
+            <div class="content-text content-text-spacing">
+                <p class="fs-5 mb-0 text-dark-custom">合同会社セキュアはケアサポートセキュアとせきゅあ訪問看護ステーションと連携し、利用者の心身の状況や家庭環境等を踏まえ、関係法令及びこの契約の定めに基づき、関係する市町村や事業者、地域の保健・医療・福祉サービス等と綿密な連携を図りながら、利用者の個々の主体性を尊重し、適切なサービスの提供に努めます。</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="service-wrapper">
-        <div class="container mt-4">
-            <div>
-                <h1 class="text-primary TopPageBg">service</h1>
-            </div>
-            <div class="TopPageBg">
-                <p>
-                    せきゅあ訪問看護ステーションでは次のようなサービスをご提供しています。
-                </p>
-            </div>
+<!-- Services Section -->
+<section class="service-wrapper py-5 services-section-bg">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3 service-title">SERVICE</h2>
+            <p class="fs-5 service-subtitle">せきゅあ訪問看護ステーションでは次のようなサービスをご提供しています。</p>
+        </div>
 
-            <div class="row justify-content-between triImg">
-                <div class="col-11 col-sm-5 col-lg-3 col-xl-3">
-                    <img src="/images/01.png" alt="first img" class="img-fluid my-4 mx-2">
-                    <h3 class="TopPageBg">現状に対する『不安』や『想い』
-                        日常生活に関する「お困りごと」の相談</h3>
-                </div>
-
-                <div class="col-11 col-sm-5 col-lg-3 col-xl-3">
-                    <img src="/images/02.png" alt="first img" class="img-fluid my-4 mx-2">
-                    <h3 class="TopPageBg">ご家族などの支援や相談へのご対応
-                        就労率援事業所などへの就労サポート</h3>
-                </div>
-
-                <div class="col-11 col-sm-5 col-lg-3 col-xl-3">
-                    <img src="/images/03.png" alt="first img" class="img-fluid my-4 mx-2">
-                    <h3 class="TopPageBg">お薬のご相談、健康状態のチェック
-                        医師の指示による医療処置など看護師がケアします。</h3>
+        <!-- Service Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100 service-card-yellow">
+                    <img src="/images/01.png" alt="相談" class="img-fluid mb-4 service-card-image">
+                    <h3 class="fw-bold mb-3 service-card-heading">現状に対する『不安』や『想い』<br>日常生活に関する「お困りごと」の相談</h3>
                 </div>
             </div>
 
-            <div class="row my-4">
-                <div class="col-11 col-md-5">
-                    <img src="/images/04.png" alt="first img" class="img-fluid m-2">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100 service-card-teal">
+                    <img src="/images/02.png" alt="サポート" class="img-fluid mb-4 service-card-image">
+                    <h3 class="fw-bold mb-3 service-card-heading">ご家族などの支援や相談へのご対応<br>就労支援事業所などへの就労サポート</h3>
                 </div>
-                <div class="col-11 TopPageBg">
-                    <p>次のような精神疾患でお悩みの方をサポートしています。</p>
-                    <p>
-                        ・うつ病
-                        ・発達障害
-                        ・認知症
-                        ・統合失調症
-                        ・不安障害
-                        ・適応障害
-                        ・アルコール依存
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100 service-card-green">
+                    <img src="/images/03.png" alt="ケア" class="img-fluid mb-4 service-card-image">
+                    <h3 class="fw-bold mb-3 service-card-heading">お薬のご相談、健康状態のチェック<br>医師の指示による医療処置など看護師がケアします。</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Info -->
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-5">
+                <img src="/images/04.png" alt="サポート内容" class="img-fluid support-image">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="support-info p-4 support-info-card">
+                    <h3 class="fw-bold mb-4 support-heading">次のような精神疾患でお悩みの方をサポートしています</h3>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-1">うつ病</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-2">発達障害</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-3">認知症</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-4">統合失調症</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-5">不安障害</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-6">適応障害</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="badge-item badge-item-7">アルコール依存</div>
+                        </div>
+                    </div>
+                    <p class="fs-5 mb-0 support-description">
+                        高齢者や障害のある方が可能な限り居宅にて自立した日常生活を営むことができるように看護師が「ご自宅」や「施設」へ伺い、在宅療養を快適にサポートいたします。そのために、地域の各機関と連携してサービス提供をしています。
                     </p>
-                    <p>
-                        高齢者や障害のある方が可能な限り居宅にて自立した日常生活を営むことができるように
-                        看護師が「ご自宅」や「施設」へ伺い、在宅療養を快適にサポートいたします。
-                        そのために、地域の各機関と連携してサービス提供をしています。
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container text-center">
-            <div class="row justify-content-around align-items-center">
-                <div class="col-5 col-sm-4 col-md-3 col-lg-2 m-2">
-                    <a href="https://www.instagram.com/secure.kk/">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                        </svg>
-                    </a>
-                    <h1 class="fs-6 m-3 TopPageBg text-center">
-                        公式instagramは
-                        <p class="mb-0">こちら</p>
-                    </h1>
-                </div>
-                <div class="col-5 col-sm-4 col-md-3 col-lg-2 m-2">
-                    <a
-                        href="https://www.google.co.jp/maps/place/%E3%81%9B%E3%81%8D%E3%82%85%E3%81%82%E8%A8%AA%E5%95%8F%E7%9C%8B%E8%AD%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/@34.6476532,135.4891791,19z/data=!4m15!1m8!3m7!1s0x6000e77f2b6efc83:0x97c311c916db1985!2z44CSNTU3LTAwMjUg5aSn6Ziq5bqc5aSn6Ziq5biC6KW_5oiQ5Yy66ZW35qmL77yT5LiB55uu77yT4oiS77yS77yYIOODk-OCr-OCv-ODvOOCt-ODpeODvOOCug!3b1!8m2!3d34.6476224!4d135.4896291!16s%2Fg%2F12hst_fcx!3m5!1s0x6000e705c791c04b:0xbab8c205ab668939!8m2!3d34.6476889!4d135.4895345!16s%2Fg%2F11y3m1x_dm?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-geo-alt"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
-                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                        </svg>
-                    </a>
-                    <h1 class="fs-6 m-3 TopPageBg text-center">
-                        位置情報は
-                        <p class="mb-0">こちら</p>
-                    </h1>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 contact-section-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="text-center mb-4">
+                    <h2 class="display-5 fw-bold text-white mb-3">お問い合わせ</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <a href="https://www.instagram.com/secure.kk/" class="text-decoration-none contact-link">
+                            <div class="contact-card p-4 text-center h-100 contact-card-custom">
+                                <div class="icon-wrapper mb-3 icon-wrapper-instagram">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-instagram" viewBox="0 0 16 16">
+                                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                    </svg>
+                                </div>
+                                <h3 class="fw-bold mb-2 contact-card-heading-pink">公式Instagram</h3>
+                                <p class="mb-0 contact-card-text">最新情報をチェック</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <a href="https://www.google.co.jp/maps/place/%E3%81%9B%E3%81%8D%E3%82%85%E3%81%82%E8%A8%AA%E5%95%8F%E7%9C%8B%E8%AD%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/@34.6476532,135.4891791,19z/data=!4m15!1m8!3m7!1s0x6000e77f2b6efc83:0x97c311c916db1985!2z44CSNTU3LTAwMjUg5aSn6Ziq5bqc5aSn6Ziq5biC6KW_5oiQ5Yy66ZW35qmL77yT5LiB55uu77yT4oiS77yS77yYIOODk-OCr-OCv-ODvOOCt-ODpeODvOOCug!3b1!8m2!3d34.6476224!4d135.4896291!16s%2Fg%2F12hst_fcx!3m5!1s0x6000e705c791c04b:0xbab8c205ab668939!8m2!3d34.6476889!4d135.4895345!16s%2Fg%2F11y3m1x_dm?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D" class="text-decoration-none">
+                            <div class="contact-card p-4 text-center h-100 contact-card-custom">
+                                <div class="icon-wrapper mb-3 icon-wrapper-map">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                    </svg>
+                                </div>
+                                <h3 class="fw-bold mb-2 contact-card-heading-cyan">アクセスマップ</h3>
+                                <p class="mb-0 contact-card-text">位置情報を確認</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

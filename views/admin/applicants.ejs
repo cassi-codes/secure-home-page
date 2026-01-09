@@ -1,61 +1,88 @@
 <% layout('layouts/boilerplate') %>
+<% block('styles').append('<link rel="stylesheet" href="/css/admin.css">') %>
 <%- include('delete') %>
 
-<div class="container-fluid">
-    <div class="row justify-content-center m-5">
-        <div class="col-12 col-xl-10 custom-bg p-4">
-            <h1 class="text-center mb-4"><span class="title-text">応募者一覧</span></h1>
-            <div class="text-center text-sm-end mb-4">
-                <button id="toggleSelectionMode" class="btn btn-primary mb-2">選択削除</button>
-                <button id="deleteSelected" class="btn btn-danger d-none mb-2">削除する</button><br class="d-none d-sm-block">
-                <button id="cancelSelection" class="btn btn-secondary d-none mb-2">キャンセル</button>
+<div class="container-fluid applicants-container">
+    <div class="applicants-card">
+        <div class="applicants-header">
+            <h1>
+                <span class="header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4DD0E1" viewBox="0 0 16 16">
+                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                    </svg>
+                </span>
+                応募者一覧
+            </h1>
+        </div>
+
+        <div class="applicants-content">
+            <div class="action-buttons">
+                <button id="toggleSelectionMode" class="btn btn-modern btn-toggle">選択削除</button>
+                <button id="deleteSelected" class="btn btn-modern btn-delete-selected d-none">削除する</button>
+                <button id="cancelSelection" class="btn btn-modern btn-cancel d-none">キャンセル</button>
             </div>
 
             <% for(let category of categories){ %>
-                <h2 class="mt-5 mb-3">
-                    <span class="category-text"><%= category %></span>
-                    <span class="badge badge-secondary"><%= workersByCategory[category].length %>件</span>
-                </h2>
-                <div class="row g-3">
-                    <% if (workersByCategory[category].length === 0) { %>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                            <div class="card h-100 bg-light">
-                                <div class="card-body d-flex align-items-center justify-content-center">
-                                    <p class="card-text text-muted mb-0">応募者なし</p>
-                                </div>
-                            </div>
+                <div class="category-section">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16">
+                                <path fill="#FFFFFF" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                            </svg>
                         </div>
-                    <% } else { %>
-                        <% for(let worker of workersByCategory[category]){ %>
+                        <h2 class="category-title"><%= category %></h2>
+                        <span class="category-badge"><%= workersByCategory[category].length %>件</span>
+                    </div>
+                    <div class="row g-4">
+                        <% if (workersByCategory[category].length === 0) { %>
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="card h-100 d-flex flex-column" data-worker-id="<%= worker.id %>" data-worker-name="<%= worker.name %>">
-                                    <h5 class="card-header d-flex justify-content-between align-items-center">
-                                        <span><%= worker.name %></span>
-                                        <input type="checkbox" class="form-check-input selection-checkbox d-none" data-worker-id="<%= worker.id %>">
-                                    </h5>
-                                    <div class="card-body flex-grow-1">
-                                        <p class="card-text">
-                                            年齢: <%= calculateAge(worker.birthDate) %>歳
-                                        </p>
-                                        <p class="card-text">
-                                            要件: <%= worker.requirements || '要件なし' %>
-                                        </p>
-                                    </div>
-                                    <div class="card-footer bg-white border-0 p-3">
-                                        <a href="tel:<%= worker.phoneNumber %>" class="btn btn-primary btn-sm w-100 mb-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-1" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-                                            </svg>
-                                            <%= sortPhoneNumber(worker.phoneNumber) %>
-                                        </a>
-                                        <form action="/admin/applicants/<%= worker.id %>?_method=DELETE" method="POST" class="delete-form">
-                                            <button type="button" class="btn btn-danger btn-sm w-100 delete-btn">削除</button>
-                                        </form>
-                                    </div>
+                                <div class="empty-card">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-inbox mb-3" viewBox="0 0 16 16">
+                                        <path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374z"/>
+                                    </svg>
+                                    <p class="mb-0">応募者なし</p>
                                 </div>
                             </div>
+                        <% } else { %>
+                            <% for(let worker of workersByCategory[category]){ %>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                    <div class="card worker-card h-100" data-worker-id="<%= worker.id %>" data-worker-name="<%= worker.name %>">
+                                        <div class="worker-card-header">
+                                            <span><%= worker.name %></span>
+                                            <input type="checkbox" class="form-check-input selection-checkbox d-none" data-worker-id="<%= worker.id %>">
+                                        </div>
+                                        <div class="worker-card-body flex-grow-1">
+                                            <div class="worker-info">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                                </svg>
+                                                <span>年齢: <%= calculateAge(worker.birthDate) %>歳</span>
+                                            </div>
+                                            <div class="worker-info">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
+                                                </svg>
+                                                <span><%= worker.requirements || '要件なし' %></span>
+                                            </div>
+                                        </div>
+                                        <div class="worker-card-footer">
+                                            <a href="tel:<%= worker.phoneNumber %>" class="btn btn-call">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                                                </svg>
+                                                <%= sortPhoneNumber(worker.phoneNumber) %>
+                                            </a>
+                                            <form action="/admin/applicants/<%= worker.id %>?_method=DELETE" method="POST" class="delete-form">
+                                                <button type="button" class="btn btn-delete-worker delete-btn">削除</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
                         <% } %>
-                    <% } %>
+                    </div>
                 </div>
             <% } %>
         </div>
