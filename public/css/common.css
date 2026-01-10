@@ -24,37 +24,6 @@ body {
     min-height: 100vh;
 }
 
-section p,
-h3 {
-    font-size: 1rem;
-}
-
-@media (min-width: 576px) {
-
-    section p,
-    h3 {
-        font-size: 1.25rem;
-    }
-}
-
-.TopPageBg {
-    background-color: rgba(255, 249, 249, 0.782);
-    border-radius: 2em;
-    display: inline-block;
-    padding: 0.25rem 0.8rem;
-}
-
-.service-wrapper img {
-    border-radius: 1em;
-}
-
-@media (min-width: 992px) {
-    .service-wrapper .triImg>div {
-        flex: 0 0 auto;
-        width: 30%;
-    }
-}
-
 svg {
     fill: white;
 }
@@ -83,11 +52,6 @@ footer h3 {
     font-size: 0.7rem;
 }
 
-
-footer .officeNumber h3 {
-    line-height: 20px;
-}
-
 .custom-bg {
     background-color: #FBF5DE;
     border-radius: 10px;
@@ -97,22 +61,8 @@ footer .officeNumber h3 {
     font-weight: 700;
 }
 
-.custom-bg h1 .title-text {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
-    display: inline-block;
-}
-
 .custom-bg h2 {
     font-weight: 600;
-}
-
-.custom-bg h2 .category-text {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    display: inline-block;
 }
 
 .modal-overlay {

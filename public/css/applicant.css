@@ -410,10 +410,6 @@ small.text-muted {
     transition: transform 0.3s;
 }
 
-.contact-card:hover {
-    transform: translateY(-5px);
-}
-
 .icon-wrapper {
     display: inline-block;
     padding: 1.5rem;
@@ -440,17 +436,6 @@ small.text-muted {
 
 .contact-card-text {
     color: #666;
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-    .hero-overlay h1 {
-        font-size: 1.5rem !important;
-    }
-
-    .hero-overlay p {
-        font-size: 0.9rem !important;
-    }
 }
 
 /* ===== SUCCESS PAGE STYLES (applicant/success.ejs) ===== */
