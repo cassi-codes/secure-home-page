@@ -33,25 +33,6 @@ svg:hover {
     transition: 0.2s;
 }
 
-
-footer {
-    font-weight: 700;
-    line-height: 30px;
-}
-
-footer h1 {
-    font-size: 20px;
-}
-
-footer h2 {
-    font-size: 15px;
-}
-
-
-footer h3 {
-    font-size: 0.7rem;
-}
-
 .custom-bg {
     background-color: #FBF5DE;
     border-radius: 10px;
@@ -78,19 +59,38 @@ footer h3 {
     align-items: center;
 }
 
-.modal-content-wrapper {
+/* Modal共通スタイル */
+.modal-content-wrapper,
+.batch-modal-content-wrapper {
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    max-width: 400px;
     width: 90%;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.modal-content-wrapper {
+    max-width: 400px;
+}
+
+.batch-modal-content-wrapper {
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content-wrapper h5,
+.batch-modal-content-wrapper h5 {
+    color: #333;
+}
+
 .modal-content-wrapper h5 {
     margin-bottom: 1.5rem;
-    color: #333;
+}
+
+.batch-modal-content-wrapper h5 {
+    margin-bottom: 1rem;
 }
 
 .modal-button-group {
@@ -101,23 +101,6 @@ footer h3 {
 
 .modal-button-group .btn {
     min-width: 100px;
-}
-
-.batch-modal-content-wrapper {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.batch-modal-content-wrapper h5 {
-    margin-bottom: 1rem;
-    color: #333;
 }
 
 #selectedWorkersList {
