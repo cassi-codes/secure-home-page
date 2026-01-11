@@ -319,8 +319,192 @@ nav .btn:hover::before {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
+/* ===== FOOTER RESPONSIVE (partials/footer.ejs) ===== */
+
+/* Mobile (xs: 0-575px) */
+@media (max-width: 575px) {
+    .footer-bg {
+        padding: 1.5rem 0 0.5rem 0;
+    }
+
+    .footer-logo {
+        max-width: 140px;  /* 280px → 140px (50%) */
+    }
+
+    .footer-company-card {
+        padding: 1rem;  /* 2rem → 1rem */
+    }
+
+    .icon-circle {
+        width: 25px;  /* 50px → 25px */
+        height: 25px;
+    }
+
+    .icon-circle svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .card-title-care,
+    .card-title-nursing,
+    .card-title-support {
+        font-size: 0.65rem;  /* 1.3rem → 0.65rem (50%) */
+    }
+
+    .company-name {
+        font-size: 0.55rem;  /* 1.1rem → 0.55rem (50%) */
+    }
+
+    .service-name-care {
+        font-size: 0.5rem;  /* 1rem → 0.5rem (50%) */
+    }
+
+    .service-description {
+        font-size: 0.45rem;  /* 0.9rem → 0.45rem (50%) */
+    }
+
+    .contact-info {
+        font-size: 0.425rem;  /* 0.85rem → 0.425rem (50%) */
+    }
+
+    .business-number-box {
+        padding: 0.4rem;  /* 0.8rem → 0.4rem */
+    }
+
+    .business-number-item {
+        font-size: 0.4rem;  /* 0.8rem → 0.4rem (50%) */
+    }
+
+    .copyright-text {
+        font-size: 0.45rem;  /* 0.9rem → 0.45rem (50%) */
+    }
+
+    .footer-card {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Small Tablet (sm: 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .footer-bg {
+        padding: 2rem 0 0.75rem 0;
+    }
+
+    .footer-logo {
+        max-width: 180px;  /* 280px → 180px (約65%) */
+    }
+
+    .footer-company-card {
+        padding: 1.3rem;  /* 2rem → 1.3rem */
+    }
+
+    .icon-circle {
+        width: 33px;  /* 50px → 33px */
+        height: 33px;
+    }
+
+    .icon-circle svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .card-title-care,
+    .card-title-nursing,
+    .card-title-support {
+        font-size: 0.85rem;  /* 1.3rem → 0.85rem (約65%) */
+    }
+
+    .company-name {
+        font-size: 0.7rem;  /* 1.1rem → 0.7rem (約65%) */
+    }
+
+    .service-name-care {
+        font-size: 0.65rem;  /* 1rem → 0.65rem (約65%) */
+    }
+
+    .service-description {
+        font-size: 0.6rem;  /* 0.9rem → 0.6rem (約65%) */
+    }
+
+    .contact-info {
+        font-size: 0.55rem;  /* 0.85rem → 0.55rem (約65%) */
+    }
+
+    .business-number-box {
+        padding: 0.5rem;  /* 0.8rem → 0.5rem */
+    }
+
+    .business-number-item {
+        font-size: 0.5rem;  /* 0.8rem → 0.5rem (約65%) */
+    }
+
+    .copyright-text {
+        font-size: 0.6rem;  /* 0.9rem → 0.6rem (約65%) */
+    }
+
+    .footer-card {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Tablet (md: 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .footer-bg {
+        padding: 2.5rem 0 0.75rem 0;
+    }
+
+    .footer-logo {
+        max-width: 220px;  /* 280px → 220px (約80%) */
+    }
+
+    .footer-company-card {
+        padding: 1.6rem;  /* 2rem → 1.6rem */
+    }
+
+    .icon-circle {
+        width: 40px;  /* 50px → 40px */
+        height: 40px;
+    }
+
+    .icon-circle svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .card-title-care,
+    .card-title-nursing,
+    .card-title-support {
+        font-size: 1.05rem;  /* 1.3rem → 1.05rem (約80%) */
+    }
+
+    .company-name {
+        font-size: 0.9rem;  /* 1.1rem → 0.9rem (約80%) */
+    }
+
+    .service-name-care {
+        font-size: 0.8rem;  /* 1rem → 0.8rem (80%) */
+    }
+
+    .service-description {
+        font-size: 0.7rem;  /* 0.9rem → 0.7rem (約80%) */
+    }
+
+    .contact-info {
+        font-size: 0.7rem;  /* 0.85rem → 0.7rem (約80%) */
+    }
+
+    .business-number-box {
+        padding: 0.65rem;  /* 0.8rem → 0.65rem */
+    }
+
+    .business-number-item {
+        font-size: 0.65rem;  /* 0.8rem → 0.65rem (約80%) */
+    }
+
+    .copyright-text {
+        font-size: 0.7rem;  /* 0.9rem → 0.7rem (約80%) */
+    }
+
     .footer-card {
         margin-bottom: 1rem;
     }

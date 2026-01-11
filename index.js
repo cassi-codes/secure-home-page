@@ -100,6 +100,8 @@ app.use((err, req, res, next) => {
   if (!err.message) {
     err.message = "問題が起きました";
   }
+  console.error(err);
+  console.error(err.stack);
   res.status(statusCode).render("applicant/error", { err });
 });
 
