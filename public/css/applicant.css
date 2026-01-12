@@ -811,6 +811,9 @@ body:has(.error-container) {
         font-size: 0.75rem;
         line-height: 1.6;
     }
+    .service-title {
+        font-size: 1.5rem !important;
+    }
     .service-subtitle {
         font-size: 0.75rem;
     }
@@ -928,6 +931,9 @@ body:has(.error-container) {
     .content-text-spacing {
         font-size: 0.875rem;
     }
+    .service-title {
+        font-size: 2rem !important;
+    }
     .service-subtitle {
         font-size: 0.75rem;
     }
@@ -1034,6 +1040,9 @@ body:has(.error-container) {
     }
     .content-text-spacing {
         font-size: 0.875rem;
+    }
+    .service-title {
+        font-size: 2.5rem !important;
     }
     .service-subtitle {
         font-size: 0.75rem;
