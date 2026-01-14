@@ -1102,8 +1102,8 @@ body:has(.applicants-container) {
     padding: 3rem 2.5rem;
     box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
     text-align: center;
-    max-width: 450px;
-    width: 90%;
+    max-width: 90%;
+    width: fit-content;
     animation: modalSlideIn 0.4s ease-out;
     border: 2px solid rgba(255, 107, 157, 0.2);
 }
@@ -1118,6 +1118,7 @@ body:has(.applicants-container) {
     margin-bottom: 2rem;
     line-height: 1.6;
 }
+
 
 /* Batch Delete Modal */
 .batch-modal-content-wrapper {
@@ -1235,6 +1236,7 @@ body:has(.applicants-container) {
     .batch-modal-content-wrapper h5 {
         font-size: 1.2rem;
     }
+
 
     #selectedWorkersList {
         padding: 1rem;
