@@ -799,7 +799,11 @@ body:has(.error-container) {
     /* topPage.ejs */
     .section-heading-pink,
     .section-heading-green {
-        font-size: 1.1rem;  /* 1.5rem → 1.1rem (約73%) */
+        font-size: 1rem;  /* 1.5rem → 1rem */
+        letter-spacing: -0.02em;  /* 文字を少し詰める */
+        line-height: 1.3;
+        word-break: keep-all;  /* 単語内での改行を防ぐ */
+        overflow-wrap: break-word;  /* 必要に応じて単語境界で改行 */
     }
     .support-heading {
         font-size: 1.1rem;  /* 1.5rem → 1.1rem */
@@ -819,13 +823,15 @@ body:has(.error-container) {
     }
     .icon-circle-cyan,
     .icon-circle-orange {
-        width: 45px;
-        height: 45px;
+        width: 40px;  /* 45px → 40px */
+        height: 40px;
+        flex-shrink: 0;  /* アイコンを圧縮から保護 */
+        min-width: 40px;  /* 最小幅を保証 */
     }
     .icon-circle-cyan svg,
     .icon-circle-orange svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;  /* 24px → 20px */
+        height: 20px;
     }
     .badge-item {
         font-size: 0.75rem;
@@ -836,6 +842,13 @@ body:has(.error-container) {
     .support-info-card {
         padding: 1.5rem;
     }
+
+    /* アイコンとテキストの間隔を狭める */
+    .modern-card-custom .d-flex.align-items-center.mb-3,
+    .support-info-card .d-flex.align-items-center.mb-3 {
+        gap: 0.5rem;
+    }
+
     .text-dark-custom {
         font-size: 0.75rem;
     }

@@ -3,6 +3,9 @@
 .navbar-custom {
     background: linear-gradient(135deg, #FF9B85 0%, #FFEB3B 100%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    min-height: 56px;
 }
 
 .navbar-brand-text {

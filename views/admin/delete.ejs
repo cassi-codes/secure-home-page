@@ -10,11 +10,20 @@
 
 <div id="batchDeleteModal" class="modal-overlay">
     <div class="batch-modal-content-wrapper">
-        <h5>以下の応募者を<br class="d-sm-none">削除して<br class="d-sm-none">よろしいですか？</h5>
+        <h5>以下の応募者を削除して<br class="d-sm-none">よろしいですか？</h5>
         <ul id="selectedWorkersList"></ul>
         <div class="modal-button-group">
             <button id="confirmBatchDelete" class="btn btn-danger">削除</button>
             <button id="cancelBatchDelete" class="btn btn-secondary">キャンセル</button>
+        </div>
+    </div>
+</div>
+
+<div id="errorModal" class="modal-overlay">
+    <div class="modal-content-wrapper">
+        <h5>削除する応募者を選択してください</h5>
+        <div class="modal-button-group">
+            <button id="closeError" class="btn btn-secondary">閉じる</button>
         </div>
     </div>
 </div>
