@@ -14,26 +14,21 @@
     const selectionCheckboxes = document.querySelectorAll('.selection-checkbox');
     const deleteButtons = document.querySelectorAll('.delete-btn');
 
-    // Navigation bar buttons (mobile)
     const navCategoryDeleteBtn = document.getElementById('navCategoryDelete');
     const navCategoryDeleteConfirmBtn = document.getElementById('navCategoryDeleteConfirm');
     const navCategoryCancelBtn = document.getElementById('navCategoryCancel');
 
-    // Content area buttons (desktop)
     const toggleSelectionModeBtn = document.getElementById('toggleSelectionMode');
     const deleteSelectedBtn = document.getElementById('deleteSelected');
     const cancelSelectionBtn = document.getElementById('cancelSelection');
 
     let isSelectionMode = false;
 
-    // Unified function for all selection delete buttons
     function handleSelectionDeleteClick() {
         const actionButtons = this.parentElement;
 
-        // Hide the delete button
         this.classList.add('d-none');
 
-        // Show confirm and cancel buttons - try both mobile and desktop IDs
         const confirmBtn = actionButtons.querySelector('#navCategoryDeleteConfirm, #deleteSelected');
         const cancelBtn = actionButtons.querySelector('#navCategoryCancel, #cancelSelection');
 
@@ -44,7 +39,6 @@
             cancelBtn.classList.remove('d-none');
         }
 
-        // Show checkboxes
         if (!isSelectionMode) {
             isSelectionMode = true;
             selectionCheckboxes.forEach(cb => {
@@ -55,11 +49,9 @@
         }
     }
 
-    // Unified function for all cancel buttons
     function handleCancelClick() {
         const actionButtons = this.parentElement;
 
-        // Hide this cancel button and confirm button
         this.classList.add('d-none');
 
         const confirmBtn = actionButtons.querySelector('#navCategoryDeleteConfirm, #deleteSelected');
@@ -67,13 +59,11 @@
             confirmBtn.classList.add('d-none');
         }
 
-        // Show delete button - try both mobile and desktop IDs
         const deleteBtn = actionButtons.querySelector('#navCategoryDelete, #toggleSelectionMode');
         if (deleteBtn) {
             deleteBtn.classList.remove('d-none');
         }
 
-        // Hide checkboxes
         isSelectionMode = false;
         selectionCheckboxes.forEach(cb => {
             cb.classList.add('d-none');
@@ -83,27 +73,22 @@
         deleteButtons.forEach(btn => btn.style.display = '');
     }
 
-    // Apply to navigation toggle button (mobile)
     if (navCategoryDeleteBtn) {
         navCategoryDeleteBtn.addEventListener('click', handleSelectionDeleteClick);
     }
 
-    // Apply to navigation cancel button (mobile)
     if (navCategoryCancelBtn) {
         navCategoryCancelBtn.addEventListener('click', handleCancelClick);
     }
 
-    // Apply to content area toggle button (desktop)
     if (toggleSelectionModeBtn) {
         toggleSelectionModeBtn.addEventListener('click', handleSelectionDeleteClick);
     }
 
-    // Apply to content area cancel button (desktop)
     if (cancelSelectionBtn) {
         cancelSelectionBtn.addEventListener('click', handleCancelClick);
     }
 
-    // Unified function for all delete selected buttons
     function handleDeleteSelectedClick() {
         const selectedCheckboxes = document.querySelectorAll('.selection-checkbox:checked');
         if (selectedCheckboxes.length === 0) {
@@ -126,12 +111,10 @@
         batchDeleteModal.style.display = 'flex';
     }
 
-    // Apply to navigation delete selected button (mobile)
     if (navCategoryDeleteConfirmBtn) {
         navCategoryDeleteConfirmBtn.addEventListener('click', handleDeleteSelectedClick);
     }
 
-    // Apply to content area delete selected button (desktop)
     if (deleteSelectedBtn) {
         deleteSelectedBtn.addEventListener('click', handleDeleteSelectedClick);
     }

@@ -56,7 +56,6 @@
     filter: brightness(0) invert(1);
 }
 
-/* Navbar Buttons - 共通スタイル */
 .btn-gradient-green,
 .btn-gradient-pink,
 .btn-gradient-red,
@@ -96,7 +95,6 @@
     color: white;
 }
 
-/* Navbar グラデーションボタン - ホバー効果 */
 .btn-gradient-green:hover,
 .btn-gradient-pink:hover,
 .btn-gradient-red:hover,
@@ -124,7 +122,6 @@
     box-shadow: 0 8px 16px rgba(77, 208, 225, 0.5) !important;
 }
 
-/* ボタンアニメーション */
 nav .btn {
     position: relative;
     overflow: hidden;
@@ -148,7 +145,6 @@ nav .btn:hover::before {
     height: 300px;
 }
 
-/* モバイル対応 */
 @media (max-width: 767px) {
     .navbar-brand-text {
         font-size: 1rem !important;
@@ -165,7 +161,6 @@ nav .btn:hover::before {
     }
 }
 
-/* ハンバーガーメニューのアニメーション */
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.3);
 }
@@ -178,14 +173,12 @@ nav .btn:hover::before {
     padding: 3rem 0 1rem 0;
 }
 
-/* Footer Logo */
 .footer-logo {
     max-width: 280px;
     opacity: 0.9;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
 }
 
-/* Footer Company Cards */
 .footer-company-card {
     background: white;
     border-radius: 20px;
@@ -193,7 +186,6 @@ nav .btn:hover::before {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Icon Circles */
 .icon-circle {
     width: 50px;
     height: 50px;
@@ -219,7 +211,6 @@ nav .btn:hover::before {
     fill: white !important;
 }
 
-/* Card Titles */
 .card-title-care {
     color: #FF9B85;
     font-size: 1.1rem;
@@ -235,33 +226,28 @@ nav .btn:hover::before {
     font-size: 1.1rem;
 }
 
-/* Company Name */
 .company-name {
     color: #333;
     font-size: 1rem;
 }
 
-/* Service Names */
 .service-name-care {
     color: #FF6B9D;
     font-size: 0.875rem;
 }
 
-/* Service Description */
 .service-description {
     color: #666;
     font-size: 0.875rem;
     line-height: 1.6;
 }
 
-/* Contact Info */
 .contact-info {
     color: #555;
     font-size: 0.75rem;
     line-height: 1.8;
 }
 
-/* Business Number Box */
 .business-number-box {
     background: #f8f9fa;
     padding: 0.8rem;
@@ -296,7 +282,6 @@ nav .btn:hover::before {
     font-size: 0.75rem;
 }
 
-/* Copyright Section */
 .copyright-section {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -306,7 +291,6 @@ nav .btn:hover::before {
     font-size: 0.875rem;
 }
 
-/* Footer Card Hover Effect */
 .footer-card {
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -318,22 +302,21 @@ nav .btn:hover::before {
 
 /* ===== FOOTER RESPONSIVE (partials/footer.ejs) ===== */
 
-/* Mobile (xs: 0-575px) - 75% scale */
 @media (max-width: 575px) {
     .footer-bg {
         padding: 2.25rem 0 0.75rem 0;
     }
 
     .footer-logo {
-        max-width: 210px;  /* 280px → 210px (75%) */
+        max-width: 210px;
     }
 
     .footer-company-card {
-        padding: 1.5rem;  /* 2rem → 1.5rem (75%) */
+        padding: 1.5rem;
     }
 
     .icon-circle {
-        width: 38px;  /* 50px → 38px (75%) */
+        width: 38px;
         height: 38px;
     }
 
@@ -345,35 +328,35 @@ nav .btn:hover::before {
     .card-title-care,
     .card-title-nursing,
     .card-title-support {
-        font-size: 0.875rem;  /* 1.1rem → 0.875rem (約80%) */
+        font-size: 0.875rem;
     }
 
     .company-name {
-        font-size: 0.75rem;  /* 1rem → 0.75rem (75%) */
+        font-size: 0.75rem;
     }
 
     .service-name-care {
-        font-size: 0.75rem;  /* 0.875rem → 0.75rem */
+        font-size: 0.75rem;
     }
 
     .service-description {
-        font-size: 0.75rem;  /* 0.875rem → 0.75rem */
+        font-size: 0.75rem;
     }
 
     .contact-info {
-        font-size: 0.65rem;  /* 0.75rem → 0.65rem */
+        font-size: 0.65rem;
     }
 
     .business-number-box {
-        padding: 0.6rem;  /* 0.8rem → 0.6rem (75%) */
+        padding: 0.6rem;
     }
 
     .business-number-item {
-        font-size: 0.65rem;  /* 0.75rem → 0.65rem */
+        font-size: 0.65rem;
     }
 
     .copyright-text {
-        font-size: 0.75rem;  /* 0.875rem → 0.75rem */
+        font-size: 0.75rem;
     }
 
     .footer-card {
@@ -381,22 +364,21 @@ nav .btn:hover::before {
     }
 }
 
-/* Small Tablet (sm: 576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
     .footer-bg {
         padding: 2rem 0 0.75rem 0;
     }
 
     .footer-logo {
-        max-width: 180px;  /* 280px → 180px (約65%) */
+        max-width: 180px;
     }
 
     .footer-company-card {
-        padding: 1.3rem;  /* 2rem → 1.3rem */
+        padding: 1.3rem;
     }
 
     .icon-circle {
-        width: 33px;  /* 50px → 33px */
+        width: 33px;
         height: 33px;
     }
 
@@ -408,35 +390,35 @@ nav .btn:hover::before {
     .card-title-care,
     .card-title-nursing,
     .card-title-support {
-        font-size: 0.85rem;  /* 1.3rem → 0.85rem (約65%) */
+        font-size: 0.85rem;
     }
 
     .company-name {
-        font-size: 0.7rem;  /* 1.1rem → 0.7rem (約65%) */
+        font-size: 0.7rem;
     }
 
     .service-name-care {
-        font-size: 0.65rem;  /* 1rem → 0.65rem (約65%) */
+        font-size: 0.65rem;
     }
 
     .service-description {
-        font-size: 0.6rem;  /* 0.9rem → 0.6rem (約65%) */
+        font-size: 0.6rem;
     }
 
     .contact-info {
-        font-size: 0.55rem;  /* 0.85rem → 0.55rem (約65%) */
+        font-size: 0.55rem;
     }
 
     .business-number-box {
-        padding: 0.5rem;  /* 0.8rem → 0.5rem */
+        padding: 0.5rem;
     }
 
     .business-number-item {
-        font-size: 0.5rem;  /* 0.8rem → 0.5rem (約65%) */
+        font-size: 0.5rem;
     }
 
     .copyright-text {
-        font-size: 0.6rem;  /* 0.9rem → 0.6rem (約65%) */
+        font-size: 0.6rem;
     }
 
     .footer-card {
@@ -444,22 +426,21 @@ nav .btn:hover::before {
     }
 }
 
-/* Tablet (md: 768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
     .footer-bg {
         padding: 2.5rem 0 0.75rem 0;
     }
 
     .footer-logo {
-        max-width: 220px;  /* 280px → 220px (約80%) */
+        max-width: 220px;
     }
 
     .footer-company-card {
-        padding: 1.6rem;  /* 2rem → 1.6rem */
+        padding: 1.6rem;
     }
 
     .icon-circle {
-        width: 40px;  /* 50px → 40px */
+        width: 40px;
         height: 40px;
     }
 
@@ -471,35 +452,35 @@ nav .btn:hover::before {
     .card-title-care,
     .card-title-nursing,
     .card-title-support {
-        font-size: 1.05rem;  /* 1.3rem → 1.05rem (約80%) */
+        font-size: 1.05rem;
     }
 
     .company-name {
-        font-size: 0.9rem;  /* 1.1rem → 0.9rem (約80%) */
+        font-size: 0.9rem;
     }
 
     .service-name-care {
-        font-size: 0.8rem;  /* 1rem → 0.8rem (80%) */
+        font-size: 0.8rem;
     }
 
     .service-description {
-        font-size: 0.7rem;  /* 0.9rem → 0.7rem (約80%) */
+        font-size: 0.7rem;
     }
 
     .contact-info {
-        font-size: 0.7rem;  /* 0.85rem → 0.7rem (約80%) */
+        font-size: 0.7rem;
     }
 
     .business-number-box {
-        padding: 0.65rem;  /* 0.8rem → 0.65rem */
+        padding: 0.65rem;
     }
 
     .business-number-item {
-        font-size: 0.65rem;  /* 0.8rem → 0.65rem (約80%) */
+        font-size: 0.65rem;
     }
 
     .copyright-text {
-        font-size: 0.7rem;  /* 0.9rem → 0.7rem (約80%) */
+        font-size: 0.7rem;
     }
 
     .footer-card {
