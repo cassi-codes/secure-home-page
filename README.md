@@ -74,7 +74,8 @@ UX/UI機能
 ・プロジェクト構造
 
 secure-home-page/
-├── models/          # Mongooseモデル
+├──controllers       # controller
+├── schema/          # Mongooseモデル、Joi
 ├── routes/          # ルート定義
 ├── views/           # EJSテンプレート
 ├── public/          # 静的ファイル（CSS, JS, 画像）
