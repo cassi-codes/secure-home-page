@@ -33,12 +33,13 @@
 - Node.js
 - Express.js
 
-データベース
-- MongoDB Atlas
-
 認証・セキュリティ
 - express-session（セッション管理）
 - express-password bcrypt（パスワードハッシュ化）
+
+データベース
+- MongoDB Atlas
+    テーブル設計：①applicant(応募者管理)　②admin(管理者1名)
 
 デプロイ
 - Render
