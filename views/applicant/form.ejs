@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-content">
-            <form action="/admin/applicants" method="POST" novalidate class="needs-validation">
+            <form action="/admin/applicants" method="POST" novalidate class="needs-validation" id="applicant-form">
                 <div class="form-group">
                     <label class="form-label" for="name">
                         <span class="label-icon">
@@ -106,8 +106,9 @@
                     <% } %>
                 </div>
 
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                 <div class="text-center">
-                    <button class="btn btn-submit" type="submit">送信する</button>
+                    <button class="btn btn-submit g-recaptcha" type="submit" data-sitekey="<%= recaptchaSiteKey %>" data-callback='onSubmit' data-action='submit'>送信する</button>
                 </div>
             </form>
         </div>
@@ -115,3 +116,10 @@
 </div>
 
 <script src="/javascripts/applicant/form.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById("g-recaptcha-response").value = token;
+        document.getElementById("applicant-form").submit();
+    }
+</script>

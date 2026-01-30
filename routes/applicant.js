@@ -9,7 +9,10 @@ router.get("/topPage", (req, res) => {
 });
 
 router.get("/form", (req, res) => {
-  res.render("applicant/form", { categories });
+  res.render("applicant/form", {
+    categories,
+    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
+  });
 });
 
 router.get("/success", (req, res) => {
