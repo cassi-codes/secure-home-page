@@ -1,3 +1,9 @@
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted) {
+    document.getElementById("applicant-form").reset();
+  }
+});
+
 const today = new Date();
 const maxDate = today.toISOString().split("T")[0];
 const minDateObj = new Date();
@@ -244,16 +250,6 @@ autoResize.call(requirementsTextarea);
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
-        } else {
-          setTimeout(() => {
-            form.reset();
-            form.classList.remove("was-validated");
-            addHidden(phoneNumberWarning);
-            addHidden(phoneNumberInvalidFeedback);
-            addHidden(phoneDuplicateWarning);
-            addHidden(birthDateRequiredFeedback);
-            addHidden(birthDateInvalidFeedback);
-          }, 0);
         }
         form.classList.add("was-validated");
       },
