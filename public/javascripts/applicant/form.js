@@ -1,6 +1,14 @@
 window.addEventListener("pageshow", function(event) {
   if (event.persisted) {
-    document.getElementById("applicant-form").reset();
+    const form = document.getElementById("applicant-form");
+    form.reset();
+    form.classList.remove("was-validated");
+    document.querySelectorAll(".is-valid, .is-invalid").forEach(function(el) {
+      el.classList.remove("is-valid", "is-invalid");
+    });
+    document.querySelectorAll("#phoneNumberWarning, #phoneNumberInvalidFeedback, #phoneDuplicateWarning, #birthDateRequiredFeedback, #birthDateInvalidFeedback").forEach(function(el) {
+      el.classList.add("d-none");
+    });
   }
 });
 
@@ -237,6 +245,8 @@ autoResize.call(requirementsTextarea);
         if (!birthDate) {
           removeHidden(birthDateRequiredFeedback);
           addInvalid(birthDateInput);
+        } else {
+          validateBirthDate();
         }
 
         if (!phoneNumber || phoneNumber.length < 10) {
@@ -249,7 +259,16 @@ autoResize.call(requirementsTextarea);
 
         if (!form.checkValidity()) {
           event.preventDefault();
-          event.stopPropagation();
+          event.stopImmediatePropagation();
+        } else {
+          setTimeout(() => {
+            form.classList.remove("was-validated");
+            addHidden(phoneNumberWarning);
+            addHidden(phoneNumberInvalidFeedback);
+            addHidden(phoneDuplicateWarning);
+            addHidden(birthDateRequiredFeedback);
+            addHidden(birthDateInvalidFeedback);
+          }, 0);
         }
         form.classList.add("was-validated");
       },
